@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   json:
     path: ./packages/json
+  xxf_json:
+    path: ./packages/xxf_json
 
 
 dev_dependencies:
