@@ -39,7 +39,8 @@ dependencies:
     path: ./packages/json
   xxf_json:
     path: ./packages/xxf_json
-
+  xxf_lifecycle:
+    path: ./packages/xxf_lifecycle
 
 dev_dependencies:
   flutter_test:

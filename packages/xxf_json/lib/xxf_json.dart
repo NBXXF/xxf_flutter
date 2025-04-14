@@ -1,3 +1,5 @@
+export 'package:json_annotation/json_annotation.dart';
+
 export 'src/type/base_decoder.dart';
 export 'src/type/bool_decoder.dart';
 export 'src/type/double_decoder.dart';
