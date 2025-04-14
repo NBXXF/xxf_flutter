@@ -1,0 +1,13 @@
+name: xxf_flutter
+packages:
+  - apps/*
+  - packages/*
+#ignore:
+#  - "**/build/**"
+#  - "**/example/**"     # 不希望被识别为 package 的路径
+
+scripts:
+  format:
+    run: "dart format ."
+  analyze:
+    run: "flutter analyze"
