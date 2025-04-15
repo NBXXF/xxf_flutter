@@ -39,6 +39,12 @@ dependencies:
     path: ./packages/xxf_json
   xxf_lifecycle:
     path: ./packages/xxf_lifecycle
+  xxf_extensions:
+    path: ./packages/xxf_extensions
+  xxf_speed:
+    path: ./packages/xxf_speed
+  xxf_widgets:
+    path: ./packages/xxf_widgets
 
 dev_dependencies:
   flutter_test:
