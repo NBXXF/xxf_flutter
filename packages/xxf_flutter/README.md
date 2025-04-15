@@ -17,20 +17,17 @@ XXF框架集合
 
 1. json框架
 2. lifecycle框架
-3. 
+3. 各种拓展函数
+
 ## Getting started
 dependencies:
 xxf_flutter: ^0.0.2
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
-```
+1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
+2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
 
 ## Additional information
 
-For more information, see https://github.com/NBXXF
+For more information, see https://github.com/NBXXF/xxf_flutter
