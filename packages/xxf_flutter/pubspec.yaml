@@ -10,10 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  xxf_json:
-    path: ../xxf_json
-  xxf_lifecycle:
-    path: ../xxf_lifecycle
+  xxf_json: ^0.0.2
+  xxf_lifecycle: ^0.0.2
 
 dev_dependencies:
   flutter_test:
