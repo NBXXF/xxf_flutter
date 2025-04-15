@@ -43,6 +43,8 @@ dependencies:
     path: ./packages/xxf_extensions
   xxf_speed:
     path: ./packages/xxf_speed
+  xxf_http:
+      path: ./packages/xxf_http
   xxf_widgets:
     path: ./packages/xxf_widgets
 

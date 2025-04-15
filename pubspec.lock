@@ -89,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.1"
+  crypto:
+    dependency: transitive
+    description:
+      name: crypto
+      sha256: "1e445881f28f22d6140f181e07737b22f1e099a5e1ff94b0af2f9e4a463f4855"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.6"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -97,6 +105,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  dartx:
+    dependency: transitive
+    description:
+      name: dartx
+      sha256: "8b25435617027257d43e6508b5fe061012880ddfdaa75a71d607c3de2a13d244"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
+  dio:
+    dependency: transitive
+    description:
+      name: dio
+      sha256: "253a18bbd4851fecba42f7343a1df3a9a4c1d31a2c1b37e221086b4fa8c8dbc9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.8.0+1"
+  dio_web_adapter:
+    dependency: transitive
+    description:
+      name: dio_web_adapter
+      sha256: "7586e476d70caecaf1686d21eee7247ea43ef5c345eab9e0cc3583ff13378d78"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   fake_async:
     dependency: transitive
     description:
@@ -147,6 +179,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  hashlib:
+    dependency: transitive
+    description:
+      name: hashlib
+      sha256: f00cbea036b8a8ea19be5df1e233fb2e250858639d3488776c32f0bd60b41cc4
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.21.2"
+  hashlib_codecs:
+    dependency: transitive
+    description:
+      name: hashlib_codecs
+      sha256: "8cea9ccafcfeaa7324d2ae52c61c69f7ff71f4237507a018caab31b9e416e3b1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.0"
   http:
     dependency: transitive
     description:
@@ -331,6 +379,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
+  retrofit:
+    dependency: transitive
+    description:
+      name: retrofit
+      sha256: c6cc9ad3374e6d07008343140a67afffaaa34cdf6bf08d4847d91417a99dcf45
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.4.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -384,6 +440,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.4"
+  time:
+    dependency: transitive
+    description:
+      name: time
+      sha256: "370572cf5d1e58adcb3e354c47515da3f7469dac3a95b447117e728e7be6f461"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.5"
   typed_data:
     dependency: transitive
     description:
@@ -424,6 +488,20 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  xxf_extensions:
+    dependency: "direct main"
+    description:
+      path: "packages/xxf_extensions"
+      relative: true
+    source: path
+    version: "0.0.1"
+  xxf_http:
+    dependency: "direct main"
+    description:
+      path: "packages/xxf_http"
+      relative: true
+    source: path
+    version: "0.0.1"
   xxf_json:
     dependency: "direct main"
     description:
@@ -438,6 +516,20 @@ packages:
       relative: true
     source: path
     version: "0.0.3"
+  xxf_speed:
+    dependency: "direct main"
+    description:
+      path: "packages/xxf_speed"
+      relative: true
+    source: path
+    version: "0.0.1"
+  xxf_widgets:
+    dependency: "direct main"
+    description:
+      path: "packages/xxf_widgets"
+      relative: true
+    source: path
+    version: "0.0.1"
   yaml:
     dependency: transitive
     description:
