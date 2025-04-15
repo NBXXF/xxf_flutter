@@ -11,22 +11,21 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Safely handle various JSON parsing errors and support all types!
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Safely handle various JSON parsing errors and support all types
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+dependencies:
+xxf_json: ^0.0.2
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+@JsonSerializable(
+converters: [...primitiveNullableConvertors])
 
 ```dart
 const like = 'sample';
@@ -34,6 +33,4 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+more info take https://github.com/NBXXF

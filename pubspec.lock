@@ -210,6 +210,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  lifecycle:
+    dependency: transitive
+    description:
+      name: lifecycle
+      sha256: c3a264df15f1256ca14c11947f38f5060d02ba724bda9604f6feec20b55221c7
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.0"
   lints:
     dependency: transitive
     description:
@@ -436,7 +444,7 @@ packages:
       path: "packages/xxf_lifecycle"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   yaml:
     dependency: transitive
     description:
