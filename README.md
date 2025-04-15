@@ -1,16 +1,36 @@
 # xxf_flutter
 
-A new Flutter project.
+<!--
+This README describes the package. If you publish this package to pub.dev,
+this README's contents appear on the landing page for your package.
 
-## Getting Started
+For information about how to write a good package README, see the guide for
+[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
 
-This project is a starting point for a Flutter application.
+For general information about developing packages, see the Dart guide for
+[creating packages](https://dart.dev/guides/libraries/create-packages)
+and the Flutter guide for
+[developing packages and plugins](https://flutter.dev/to/develop-packages).
+-->
 
-A few resources to get you started if this is your first Flutter project:
+XXF框架集合
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. json框架
+2. lifecycle框架
+3. 各种拓展函数
+
+## Getting started
+dependencies:
+xxf_flutter: ^0.0.2
+
+## Usage
+
+1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
+2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
+
+## Additional information
+
+For more information, see https://github.com/NBXXF/xxf_flutter
+
