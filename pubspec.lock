@@ -430,14 +430,14 @@ packages:
       path: "packages/xxf_json"
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.3"
   xxf_lifecycle:
     dependency: "direct main"
     description:
       path: "packages/xxf_lifecycle"
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.3"
   yaml:
     dependency: transitive
     description:
