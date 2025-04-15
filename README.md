@@ -14,6 +14,7 @@ and the Flutter guide for
 -->
 
 XXF框架集合
+[![Pub Package](https://img.shields.io/pub/v/xxf_flutter.svg)](https://pub.dev/packages/xxf_flutter)
 
 ## Features
 
