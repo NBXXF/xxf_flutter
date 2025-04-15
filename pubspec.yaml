@@ -44,7 +44,7 @@ dependencies:
   xxf_speed:
     path: ./packages/xxf_speed
   xxf_http:
-      path: ./packages/xxf_http
+    path: ./packages/xxf_http
   xxf_widgets:
     path: ./packages/xxf_widgets
 
@@ -60,6 +60,11 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   # 用最新版本，或与 melos.yaml 兼容的版本
   melos: ^3.1.0
+
+  #编译时库
+  build_runner: ^2.4.0
+  json_serializable: ^6.8.0
+  retrofit_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
