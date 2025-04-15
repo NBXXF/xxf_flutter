@@ -14,7 +14,7 @@ and the Flutter guide for
 flutter自定义组件集合
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
