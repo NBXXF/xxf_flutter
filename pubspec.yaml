@@ -62,7 +62,7 @@ dev_dependencies:
 
   #编译时库
   build_runner: ^2.4.0
-  xxf_http_generator:
+  xxf_http_generator: ^0.0.3
 
 flutter:
 
