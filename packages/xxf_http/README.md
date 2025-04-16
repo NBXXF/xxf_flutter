@@ -28,7 +28,7 @@ dev_dependencies:
   sdk: flutter
 
   #编译时库
-  build_runner: ^2.4.0
+  build_runner:
   json_serializable: ^6.8.0
   #生成自定义的restapi.g.dart
   xxf_http_generator:

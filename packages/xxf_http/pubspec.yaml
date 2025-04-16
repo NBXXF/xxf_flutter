@@ -22,7 +22,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 
   #编译时库
-  build_runner: ^2.4.0
+  build_runner:
   json_serializable: ^6.8.0
   retrofit_generator:
 

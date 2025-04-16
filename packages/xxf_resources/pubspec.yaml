@@ -1,6 +1,6 @@
-name: xxf_json
-description: "Safely handle json"
-version: 0.0.3
+name: xxf_resources
+description: "资源文件与国际化"
+version: 0.0.1
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -10,20 +10,30 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^4.9.0
+  #图片,字体,颜色生成清单,类似swiftGen,需要在dev_dependencies 配置这两行   build_runner: flutter_gen_runner:
+  flutter_gen: ^5.10.0
+
+  #国际化,idea 使用flutter intl插件自动生成清单文件
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.19.0
+
+#配置idea插件flutter intl
+flutter_intl:
+  enabled: true
+  arb_dir: lib/l10n       # ARB 文件所在的文件夹
+  template_arbs: [intl_en.arb]  # 默认的 ARB 文件
+  output_dir: lib/generated/l10n   # 生成的本地化 Dart 文件
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
 
-  #生成.g.dart需要配置
+  # 生成图片等资源文件
   build_runner:
-  json_serializable: ^6.7.1
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+  flutter_gen_runner:
 
-# The following section is specific to Flutter packages.
 flutter:
 
   # To add assets to your package, add an assets section, like this:

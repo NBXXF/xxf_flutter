@@ -55,7 +55,7 @@ dependencies:
 xxf_json: ^0.0.2
 
 dev_dependencies:
-  build_runner: ^2.4.6
+  build_runner:
   json_serializable: ^6.7.1
 ```
 
