@@ -20,8 +20,14 @@ XXF框架集合
 2. lifecycle框架
 3. http框架
 4. 性能框架
-5. 基础组件
+5. 基础组件,loading,toast
 6. 桌面端[窗口控制,系统托盘,context_menu]
+7. 权限
+8. 日志
+9. 自适应布局
+10. 缓存key-value/data-base
+11. 依赖注入
+12. 多环境配置 flutter_dotenv
 
 ## Getting started
 dependencies:
