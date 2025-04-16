@@ -21,6 +21,7 @@ XXF框架集合
 3. http框架
 4. 性能框架
 5. 基础组件
+6. 桌面端[窗口控制,系统托盘,context_menu]
 
 ## Getting started
 dependencies:
@@ -31,7 +32,7 @@ xxf_flutter: ^0.0.2
 1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
 2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
 3. [http用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_http)
-
+4. [桌面端](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_desktop)
 
 ## Additional information
 

@@ -59,12 +59,10 @@ Future<void> main() async {
 Future<void> initSystemTray() async {
   ///图片一定要存在,否则显示不出来
   String path =
-      Platform.isWindows ? 'assets/app_icon.ico' : 'assets/app_icon.png';
+  Platform.isWindows ? 'assets/app_icon.ico' : 'assets/app_icon.png';
 
-  final AppWindow appWindow = AppWindow();
   final SystemTray systemTray = SystemTray();
   await systemTray.initSystemTraySimple(
-    appWindow: appWindow,
     title: "file_manager_ai",
     iconPath: path,
     menus: [
