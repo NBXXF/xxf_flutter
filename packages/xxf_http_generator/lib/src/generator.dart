@@ -54,7 +54,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
   static const _headersVar = 'headers';
   static const _dataVar = 'data';
   static const _localDataVar = '_data';
-  static const _dioVar = '_dio';
+  static const _dioVar = '_dioClient';
   static const _extraVar = 'extra';
   static const _localExtraVar = '_extra';
   static const _contentType = 'contentType';
@@ -2701,7 +2701,7 @@ ${bodyName.displayName} == null
 
 Builder generatorFactoryBuilder(BuilderOptions options) => SharedPartBuilder(
       [RetrofitGenerator(RetrofitOptions.fromOptions(options))],
-      'retrofit',
+      'retrofit_xxf',
     );
 
 /// Returns `$revived($args $kwargs)`, this won't have ending semi-colon (`;`).
