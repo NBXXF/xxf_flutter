@@ -1,5 +1,3 @@
-# xxf_flutter
-
 <!--
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
@@ -14,13 +12,14 @@ and the Flutter guide for
 -->
 
 XXF框架集合
-[![Pub Package](https://img.shields.io/pub/v/xxf_flutter.svg)](https://pub.dev/packages/xxf_flutter)
 
 ## Features
 
 1. json框架
 2. lifecycle框架
-3. 各种拓展函数
+3. http框架
+4. 性能框架
+5. 基础组件
 
 ## Getting started
 dependencies:
@@ -30,8 +29,9 @@ xxf_flutter: ^0.0.2
 
 1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
 2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
+3. [http用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_http)
+
 
 ## Additional information
 
 For more information, see https://github.com/NBXXF/xxf_flutter
-
