@@ -2,7 +2,7 @@ name: xxf_http_generator
 description: retrofit generator is an dio client generator using source_gen and inspired by Chopper and Retrofit.
 homepage: "https://github.com/NBXXF/xxf_flutter"
 repository: "https://github.com/NBXXF/xxf_flutter"
-version: 0.0.2
+version: 0.0.3
 environment:
   sdk: '>=3.3.0 <4.0.0'
 

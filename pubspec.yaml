@@ -43,7 +43,7 @@ dependencies:
     path: ./packages/xxf_extensions
   xxf_speed:
     path: ./packages/xxf_speed
-  xxf_http:
+#  xxf_http:
   xxf_widgets:
     path: ./packages/xxf_widgets
 
@@ -62,7 +62,7 @@ dev_dependencies:
 
   #编译时库
   build_runner: ^2.4.0
-  xxf_http_generator: ^0.0.1
+  xxf_http_generator:
 
 flutter:
 
