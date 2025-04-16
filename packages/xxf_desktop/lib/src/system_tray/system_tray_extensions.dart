@@ -1,14 +1,13 @@
 import 'dart:io';
 
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:system_tray/system_tray.dart';
 
 extension SystemTrayExtensions on SystemTray {
   /// iconPath: 系统托盘图标
-  /// appWindow: 当前应用window
   /// menus: 点击菜单
   Future<void> initSystemTraySimple({
-    required AppWindow appWindow,
     required String iconPath,
     String? title,
     String? toolTip,

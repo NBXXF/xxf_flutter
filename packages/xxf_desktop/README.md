@@ -24,11 +24,9 @@ start using the package.
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+### 右键菜单
 ```dart
-ContextualMenuArea(
+ ContextualMenuArea(
 child: Container(
 padding: EdgeInsets.all(20),
 color: Colors.grey,
@@ -49,7 +47,34 @@ MenuItem.separator(),
 MenuItem(label: "粘贴"),
 ];
 },
-),
+);
+```
+### 系统托盘
+```dart
+Future<void> main() async {
+  runApp(const MyApp());
+  await initSystemTray();
+}
+
+Future<void> initSystemTray() async {
+  ///图片一定要存在,否则显示不出来
+  String path =
+      Platform.isWindows ? 'assets/app_icon.ico' : 'assets/app_icon.png';
+
+  final AppWindow appWindow = AppWindow();
+  final SystemTray systemTray = SystemTray();
+  await systemTray.initSystemTraySimple(
+    appWindow: appWindow,
+    title: "file_manager_ai",
+    iconPath: path,
+    menus: [
+      MenuItemLabel(label: 'Show', onClicked: (menuItem) => appWindow.show()),
+      MenuItemLabel(label: 'Hide', onClicked: (menuItem) => appWindow.hide()),
+      MenuItemLabel(label: 'Exit', onClicked: (menuItem) => appWindow.close()),
+    ],
+  );
+}
+
 ```
 
 ## Additional information
