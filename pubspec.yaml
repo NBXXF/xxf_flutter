@@ -44,7 +44,6 @@ dependencies:
   xxf_speed:
     path: ./packages/xxf_speed
   xxf_http:
-    path: ./packages/xxf_http
   xxf_widgets:
     path: ./packages/xxf_widgets
 
@@ -63,13 +62,8 @@ dev_dependencies:
 
   #编译时库
   build_runner: ^2.4.0
-  json_serializable: ^6.8.0
-  retrofit_generator:
+  xxf_http_generator: ^0.0.1
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
 
   # The following line ensures that the Material Icons font is

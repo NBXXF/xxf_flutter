@@ -1,0 +1,8 @@
+builders:
+  retrofit_generator:
+    import: "package:xxf_http_generator/xxf_http_generator.dart"
+    builder_factories: ["xxfHttpBuilder"]
+    build_extensions: { ".dart": [".retrofit.g.part"] } ## ← 生成文件名
+    auto_apply: dependents   # ← 应用于所有依赖你的包
+    build_to: cache  # ← 输出到项目中
+    applies_builders: ["source_gen|combining_builder"]
