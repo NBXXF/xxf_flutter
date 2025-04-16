@@ -18,7 +18,7 @@ abstract class ApiClient {
 class MyClientAdapter extends ClientAdapter{
   @override
   Dio adapt() {
-    // TODO: implement adapt
+    // TODO: 创建自己的client
     throw UnimplementedError();
   }
 }

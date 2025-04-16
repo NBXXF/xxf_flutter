@@ -15,20 +15,63 @@ http框架
 
 ## Features
 
-List what your package can do. Maybe include images, gifs, or videos.
+1. 相对于RetrofitGenerator 会生成非空参数的dio对象,这个框架可以生成可空的dio对象
+2. 支持注解@UserClientAdapter(client: MyClientAdapter) 在框架内部创建dio对象,比参数更内敛
 
 ## Getting started
+```yaml
+dependencies:
+  xxf_http: ^0.0.2
 
-List prerequisites and provide or point to information on how to
-start using the package.
+dev_dependencies:
+  flutter_test:
+  sdk: flutter
+
+  #编译时库
+  build_runner: ^2.4.0
+  json_serializable: ^6.8.0
+  #生成自定义的restapi.g.dart
+  xxf_http_generator:
+```
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+
+import 'package:xxf_http/xxf_http.dart';
+
+import '../model/data.dart';
+import 'apis.dart';
+part 'api_client.g.dart';
+@RestApi(baseUrl: "https://gorest.co.in/public-api/")
+@UserClientAdapter(client: MyClientAdapter)
+///@UseCallAdapter(callAdapter:ResultCallAdapter)
+abstract class ApiClient {
+  factory ApiClient() {
+    return _ApiClient(null);
+  }
+
+  @GET(Apis.users)
+  Future<ResponseData> getUsers();
+}
+class MyClientAdapter extends ClientAdapter{
+  @override
+  Dio adapt() {
+    // TODO: 创建自己的client
+    throw UnimplementedError();
+  }
+}
+// class ResultCallAdapter<T> extends CallAdapter<Future<T>, Future<Result<T>>> {
+//   @override
+//   Future<Result<T>> adapt(Future<T> Function() call) async {
+//     try {
+//       final response = await call();
+//       return Success<T>(response);
+//     } catch (e) {
+//       return Error(e);
+//     }
+//   }
+// }
 ```
 
 ## Additional information

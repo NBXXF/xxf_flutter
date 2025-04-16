@@ -15,7 +15,9 @@ import 'package:source_gen/source_gen.dart';
 import 'package:xxf_http/xxf_http.dart' show UserClientAdapter;
 
 const _analyzerIgnores =
-    '// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations';
+    '// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations'
+        +"\n\n//Second enhancement by xxf<xuanyouwu@gmail.com>, custom client"
+        +"\n//For more information, please refer to https://pub.dev/packages/xxf_flutter";
 
 class RetrofitOptions {
   RetrofitOptions({
