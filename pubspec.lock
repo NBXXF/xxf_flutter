@@ -746,19 +746,17 @@ packages:
   xxf_http:
     dependency: transitive
     description:
-      name: xxf_http
-      sha256: aee675cf4c5d23320c340d8572093f025263014a68d810c63de625b29cd4f083
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/xxf_http"
+      relative: true
+    source: path
     version: "0.0.1"
   xxf_http_generator:
     dependency: "direct dev"
     description:
-      name: xxf_http_generator
-      sha256: "54b9c324ea5fa92efe17eb1c67833a3a6ac6ba8067eba24f91c1e0ca4ce04168"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
+      path: "packages/xxf_http_generator"
+      relative: true
+    source: path
+    version: "0.0.4"
   xxf_json:
     dependency: "direct main"
     description:

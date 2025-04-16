@@ -10,10 +10,11 @@ part of 'api_client.dart';
 
 class _ApiClient implements ApiClient {
   _ApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
+    _dio ??= MyClientAdapter().adapt();
     baseUrl ??= 'https://gorest.co.in/public-api/';
   }
 
-  final Dio _dio;
+  Dio? _dio;
 
   String? baseUrl;
 
@@ -28,14 +29,14 @@ class _ApiClient implements ApiClient {
     final _options = _setStreamType<ResponseData>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
-            _dio.options,
+            _dio!.options,
             '/users',
             queryParameters: queryParameters,
             data: _data,
           )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+          .copyWith(baseUrl: _combineBaseUrls(_dio!.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    final _result = await _dio!.fetch<Map<String, dynamic>>(_options);
     late ResponseData _value;
     try {
       _value = ResponseData.fromJson(_result.data!);

@@ -12,6 +12,7 @@ import 'package:dio/dio.dart';
 import 'package:protobuf/protobuf.dart';
 import 'package:retrofit/retrofit.dart' as retrofit;
 import 'package:source_gen/source_gen.dart';
+import 'package:xxf_http/xxf_http.dart' show UserClientAdapter;
 
 const _analyzerIgnores =
     '// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations';
@@ -54,7 +55,8 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
   static const _headersVar = 'headers';
   static const _dataVar = 'data';
   static const _localDataVar = '_data';
-  static const _dioVar = '_dioClient';
+  static const _dioVar = '_dio';
+  static const _dioVarNotNull = '_dio!';
   static const _extraVar = 'extra';
   static const _localExtraVar = '_extra';
   static const _contentType = 'contentType';
@@ -113,12 +115,12 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
         ])
         ..constructors.addAll(
           annotateClassConsts.map(
-            (e) => _generateConstructor(baseUrl, superClassConst: e),
+            (e) => _generateConstructor(baseUrl, superClassConst: e,classElement: element),
           ),
         )
         ..methods.addAll(_parseMethods(element));
       if (annotateClassConsts.isEmpty) {
-        c.constructors.add(_generateConstructor(baseUrl));
+        c.constructors.add(_generateConstructor(baseUrl,classElement: element));
         c.implements.add(refer(_generateTypeParameterizedName(element)));
       } else {
         c.extend = Reference(_generateTypeParameterizedName(element));
@@ -140,8 +142,8 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
   Field _buildDioFiled() => Field(
         (m) => m
           ..name = _dioVar
-          ..type = refer('Dio')
-          ..modifier = FieldModifier.final$,
+          ..type = refer('Dio?')
+          ..modifier = FieldModifier.var$,
       );
 
   Field _buildBaseUrlFiled(String? url) => Field((m) {
@@ -160,6 +162,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
 
   Constructor _generateConstructor(
     String? url, {
+    required ClassElement classElement,
     ConstructorElement? superClassConst,
   }) =>
       Constructor((c) {
@@ -215,7 +218,11 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
               .map((e) => '${e.isNamed ? '${e.name}: ' : ''}${e.name}');
           c.initializers.add(Code('$superConstName(${paramList.join(',')})'));
         }
+
+        var adaptClient = getAdaptClient(classElement: classElement);
         final block = [
+          if (adaptClient != null && adaptClient.isNotEmpty)
+            Code('$_dioVar ??= ${adaptClient};'),
           if (url != null && url.isNotEmpty)
             Code('$_baseUrlVar ??= ${literal(url)};'),
         ];
@@ -224,6 +231,21 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
           c.body = Block.of(block);
         }
       });
+
+  String? getAdaptClient({required ClassElement classElement}){
+    final adapterAnnotation = TypeChecker.fromRuntime(UserClientAdapter)
+        .firstAnnotationOf(classElement);
+    if (adapterAnnotation != null) {
+      final reader = ConstantReader(adapterAnnotation);
+      final adapterType = reader.read('client').typeValue;
+      final adapterTypeName =
+          adapterType.getDisplayString(withNullability: false);
+
+      return '$adapterTypeName().adapt()';
+    } else {
+      return null;
+    }
+  }
 
   // Traverses a type to find a matching type argument
   // e.g. given a type `List<List<User>>` and a key `User`, it will return the `DartType` "User"
@@ -766,7 +788,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
       if (isWrappedWithHttpResponseWrapper) {
         blocks
           ..add(
-            refer('final $_resultVar = await $_dioVar.fetch')
+            refer('final $_resultVar = await $_dioVarNotNull.fetch')
                 .call([options], {}, [refer('void')]).statement,
           )
           ..add(
@@ -777,7 +799,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
           );
       } else {
         blocks.add(
-          refer('await $_dioVar.fetch')
+          refer('await $_dioVarNotNull.fetch')
               .call([options], {}, [refer('void')]).statement,
         );
       }
@@ -789,7 +811,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
           blocks.add(
             declareFinal(_resultVar)
                 .assign(
-                  refer('await $_dioVar.fetch<List<dynamic>>').call([options]),
+                  refer('await $_dioVarNotNull.fetch<List<dynamic>>').call([options]),
                 )
                 .statement,
           );
@@ -820,7 +842,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
           blocks.add(
             declareFinal(_resultVar)
                 .assign(
-                  refer('await $_dioVar.fetch<List<dynamic>>').call([options]),
+                  refer('await $_dioVarNotNull.fetch<List<dynamic>>').call([options]),
                 )
                 .statement,
           );
@@ -896,7 +918,7 @@ class RetrofitGenerator extends GeneratorForAnnotation<retrofit.RestApi> {
         blocks.add(
           declareFinal(_resultVar)
               .assign(
-                refer('await $_dioVar.fetch<Map<String,dynamic>>')
+                refer('await $_dioVarNotNull.fetch<Map<String,dynamic>>')
                     .call([options]),
               )
               .statement,
@@ -1077,7 +1099,7 @@ You should create a new class to encapsulate the response.
           blocks.add(
             declareFinal(_resultVar)
                 .assign(
-                  refer('await $_dioVar.fetch<${_displayString(returnType)}>')
+                  refer('await $_dioVarNotNull.fetch<${_displayString(returnType)}>')
                       .call([options]),
                 )
                 .statement,
@@ -1098,7 +1120,7 @@ You should create a new class to encapsulate the response.
           blocks
             ..add(
               declareFinal(_resultVar)
-                  .assign(refer('await $_dioVar.fetch').call([options]))
+                  .assign(refer('await $_dioVarNotNull.fetch').call([options]))
                   .statement,
             )
             ..add(const Code('final $_valueVar = $_resultVar.data;'));
@@ -1107,7 +1129,7 @@ You should create a new class to encapsulate the response.
             ..add(
               declareFinal(_resultVar)
                   .assign(
-                    refer('await $_dioVar.fetch<List<int>>').call([options]),
+                    refer('await $_dioVarNotNull.fetch<List<int>>').call([options]),
                   )
                   .statement,
             )
@@ -1123,7 +1145,7 @@ You should create a new class to encapsulate the response.
           blocks.add(
             declareFinal(_resultVar)
                 .assign(
-                  refer('await $_dioVar'
+                  refer('await $_dioVarNotNull'
                           '.fetch<$fetchType>')
                       .call([options]),
                 )
@@ -1464,13 +1486,13 @@ You should create a new class to encapsulate the response.
             .newInstance([], args)
             .property('compose')
             .call(
-              [refer(_dioVar).property('options'), path],
+              [refer(_dioVarNotNull).property('options'), path],
               composeArguments,
             )
             .property('copyWith')
             .call([], {
               _baseUrlVar: refer('_combineBaseUrls').call([
-                refer(_dioVar).property('options').property('baseUrl'),
+                refer(_dioVarNotNull).property('options').property('baseUrl'),
                 baseUrl,
               ]),
             }),
@@ -1497,7 +1519,7 @@ You should create a new class to encapsulate the response.
         )
         ..add(
           newOptions.property('headers').property('addAll').call(
-            [refer(_dioVar).property('options').property('headers')],
+            [refer(_dioVarNotNull).property('options').property('headers')],
           ).statement,
         )
         ..add(
@@ -1514,7 +1536,7 @@ You should create a new class to encapsulate the response.
               ..[_queryParamsVar] = namedArguments[_queryParamsVar]!
               ..[_path] = namedArguments[_path]!
               ..[_baseUrlVar] = refer('_combineBaseUrls').call([
-                refer(_dioVar).property('options').property('baseUrl'),
+                refer(_dioVarNotNull).property('options').property('baseUrl'),
                 extraOptions.remove(_baseUrlVar)!,
               ]),
           )
