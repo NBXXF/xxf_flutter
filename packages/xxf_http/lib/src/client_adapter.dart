@@ -12,5 +12,5 @@ import 'package:dio/dio.dart';
     @CallClientFactory(client: MyClientAdapter)
  */
 abstract class ClientAdapter {
-  Dio createClient();
+  Dio adapt();
 }
