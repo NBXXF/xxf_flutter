@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   #库
+  dio: ^5.8.0+1
   retrofit:
   json_annotation: ^4.9.0
 
