@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:logging/logging.dart' as logging;
 
 import '../logger.dart' show Logger;
@@ -21,4 +22,9 @@ class LoggingLogger implements Logger {
 
   @override
   void logE(String tag, Object log) => _logger.severe('[$tag] $log');
+
+  @override
+  Widget getLoggerWidget() {
+    return Text("un support");
+  }
 }

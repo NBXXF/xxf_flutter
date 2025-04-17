@@ -43,9 +43,10 @@ dependencies:
     path: ./packages/xxf_extensions
   xxf_speed:
     path: ./packages/xxf_speed
-#  xxf_http:
   xxf_widgets:
     path: ./packages/xxf_widgets
+  xxf_log:
+    path: ./packages/xxf_log
 
 dev_dependencies:
   flutter_test:

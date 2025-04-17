@@ -16,6 +16,8 @@ class LogConfig {
 
   LogConfig({this.logInterceptor, Logger? logger, List<Parser>? parsers})
     : logger = logger ?? TalkerLogger(),
+
+      ///默认支持集合,字典,json
       parsers =
           parsers ??
           [CollectionParser(), MapParser(), JsonParser(), StringParser()];

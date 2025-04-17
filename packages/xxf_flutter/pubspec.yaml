@@ -15,8 +15,10 @@ dependencies:
   xxf_json:
   xxf_lifecycle:
   xxf_http:
+  xxf_log:
   xxf_resources:
   xxf_widgets:
+
 
 dev_dependencies:
   flutter_test:

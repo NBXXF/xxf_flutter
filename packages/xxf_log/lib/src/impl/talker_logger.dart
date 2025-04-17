@@ -1,4 +1,5 @@
-import 'package:talker_flutter/talker_flutter.dart' show Talker;
+import 'package:flutter/widgets.dart';
+import 'package:talker_flutter/talker_flutter.dart' show Talker, TalkerScreen;
 
 import '../logger.dart' show Logger;
 
@@ -21,4 +22,9 @@ class TalkerLogger implements Logger {
 
   @override
   void logE(String tag, Object log) => _logger.error('[$tag] $log');
+
+  @override
+  Widget getLoggerWidget() {
+    return TalkerScreen(talker: _logger, appBarTitle: "log");
+  }
 }

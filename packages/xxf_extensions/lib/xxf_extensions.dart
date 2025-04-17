@@ -5,6 +5,7 @@ export 'package:dartx/dartx.dart';
 
 
 export 'src/core/safe_cast_extensions.dart';
+export 'src/core/timing_extensions.dart';
 export 'src/editable/editable_text_state_extensions.dart';
 export 'src/editable/editable_text_state_key_extensions.dart';
 export 'src/editable/editable_text_state_key_selection_overlay_extensions.dart';
