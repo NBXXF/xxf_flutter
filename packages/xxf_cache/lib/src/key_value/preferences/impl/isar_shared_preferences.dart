@@ -1,6 +1,7 @@
-import 'package:lib_cache/src/key_value/isar/isar_key_value.dart'
-    show IsarKeyValue;
-import 'package:lib_cache/src/key_value/preferences/shared_preferences.dart';
+
+
+import '../../../../xxf_cache.dart' show SharedPreferences;
+import '../../isar/isar_key_value.dart' show IsarKeyValue;
 
 ///用isar实现的键值对存储
 class ISarSharedPreferences extends SharedPreferences {

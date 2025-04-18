@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:lib_cache/src/key_value/preferences/impl/isar_shared_preferences.dart';
+import 'impl/isar_shared_preferences.dart' show ISarSharedPreferences;
 
 ///键值对存储接口定义
 abstract class SharedPreferences {

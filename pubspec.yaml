@@ -15,6 +15,7 @@ dependencies:
   xxf_lifecycle:
   xxf_http:
   xxf_log:
+  xxf_cache:
   xxf_resources:
   xxf_widgets:
 
