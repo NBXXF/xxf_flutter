@@ -328,6 +328,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
+  get_it:
+    dependency: transitive
+    description:
+      name: get_it
+      sha256: f126a3e286b7f5b578bf436d5592968706c4c1de28a228b870ce375d9f743103
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.0.3"
   glob:
     dependency: transitive
     description:
@@ -979,7 +987,7 @@ packages:
       path: "../packages/xxf_arch"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   xxf_cache:
     dependency: "direct main"
     description:
