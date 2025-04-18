@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xxf_extensions/xxf_extensions.dart';
 import 'package:xxf_log/xxf_log.dart';
+import 'package:xxf_extensions/xxf_extensions.dart';
+import 'package:xxf_cache/xxf_cache.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     ///回调方式更加高效,底层逻辑先判断是否打印,再执行回调
-    logD(()=>"=======>_incrementCounter");
-    var measureNano = measureTimeMillis((){
+    logD(() => "=======>_incrementCounter");
+    var measureNano = measureTimeMillis(() {
       logE("=========>count:$_counter");
     });
     logE("=========>take:$measureNano");
@@ -45,6 +46,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
+    test();
+  }
+
+  void test() {
+    final key = "xxx";
+    SharedPreferences.getInstance().getString(key, defValue: "").then((value) {
+      logI("=========>cached:$key =$value");
+    });
+    SharedPreferences.getInstance().putString(key, "$_counter");
   }
 
   @override

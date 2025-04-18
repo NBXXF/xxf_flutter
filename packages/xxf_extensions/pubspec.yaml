@@ -1,6 +1,6 @@
 name: xxf_extensions
 description: "flutter 各种拓展函数库"
-version: 0.0.1
+version: 0.0.2
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
