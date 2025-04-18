@@ -1,7 +1,7 @@
-import 'package:xxf_log/src/parser/parser.dart';
+import 'package:xxf_log/src/parser/log_parser.dart';
 
 ///处理数组
-class CollectionParser extends Parser {
+class CollectionParser extends LogParser {
   static const String lineSeparator = '\n';
 
   @override

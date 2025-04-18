@@ -1,6 +1,6 @@
-import 'package:xxf_log/src/parser/parser.dart';
+import 'package:xxf_log/src/parser/log_parser.dart';
 
-class MapParser extends Parser {
+class MapParser extends LogParser {
   static const String lineSeparator = '\n';
 
   @override

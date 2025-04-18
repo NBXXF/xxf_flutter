@@ -5,7 +5,7 @@ export 'src/log_level.dart';
 export 'src/log_level_interceptor.dart';
 export 'src/log_config.dart';
 
-export 'src/parser/parser.dart';
+export 'src/parser/log_parser.dart';
 export 'src/parser/impl/collection_parser.dart';
 export 'src/parser/impl/json_parser.dart';
 export 'src/parser/impl/map_parser.dart';

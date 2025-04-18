@@ -2,7 +2,7 @@ import 'package:xxf_log/src/parser/impl/collection_parser.dart';
 import 'package:xxf_log/src/parser/impl/json_parser.dart';
 import 'package:xxf_log/src/parser/impl/map_parser.dart';
 import 'package:xxf_log/src/parser/impl/string_parser.dart';
-import 'package:xxf_log/src/parser/parser.dart';
+import 'package:xxf_log/src/parser/log_parser.dart';
 
 import '../xxf_log.dart' show TalkerLogger;
 import 'log_interceptor.dart' show LogInterceptor;
@@ -12,9 +12,9 @@ import 'logger.dart' show Logger;
 class LogConfig {
   LogInterceptor? logInterceptor;
   Logger logger;
-  List<Parser> parsers;
+  List<LogParser> parsers;
 
-  LogConfig({this.logInterceptor, Logger? logger, List<Parser>? parsers})
+  LogConfig({this.logInterceptor, Logger? logger, List<LogParser>? parsers})
     : logger = logger ?? TalkerLogger(),
 
       ///默认支持集合,字典,json

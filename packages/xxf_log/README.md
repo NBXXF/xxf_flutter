@@ -26,8 +26,10 @@ start using the package.
 ## Usage
 
 ```dart
+    ///回调方式更加高效,底层逻辑先判断是否打印,再执行回调
+  logD(()=>"=======>_incrementCounter");
+
   logE("=========>count:$_counter");
-  logE("=========>take:$measureNano");
 ```
 跳转log日志ui
 ```dart

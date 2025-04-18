@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:xxf_log/src/parser/parser.dart';
+import 'package:xxf_log/src/parser/log_parser.dart';
 
-class JsonParser extends Parser {
+class JsonParser extends LogParser {
   static const int _indent = 4;
 
   @override
