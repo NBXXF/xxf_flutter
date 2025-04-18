@@ -5,7 +5,7 @@ import 'package:xxf_log/src/parser/impl/string_parser.dart';
 import 'package:xxf_log/src/parser/parser.dart';
 
 import '../xxf_log.dart' show TalkerLogger;
-import 'log_Interceptor.dart' show LogInterceptor;
+import 'log_interceptor.dart' show LogInterceptor;
 import 'logger.dart' show Logger;
 
 /// 日志配置

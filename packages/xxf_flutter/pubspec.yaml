@@ -1,6 +1,6 @@
 name: xxf_flutter
 description: "flutter框架集合"
-version: 0.0.7+1
+version: 0.0.7+2
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
   xxf_json:
   xxf_lifecycle:
   xxf_http:
-  xxf_log: ^0.0.3
+  xxf_log:
   xxf_resources:
   xxf_widgets:
 

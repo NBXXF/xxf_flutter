@@ -2,7 +2,7 @@ export 'src/log_utils_extensions.dart';
 export 'src/logger.dart';
 export 'src/log_utils.dart';
 export 'src/log_level.dart';
-export 'src/log_Interceptor.dart' show LogLevelInterceptor;
+export 'src/log_level_interceptor.dart';
 export 'src/log_config.dart';
 
 export 'src/parser/parser.dart';
