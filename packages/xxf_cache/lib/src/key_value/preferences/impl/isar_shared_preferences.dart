@@ -21,23 +21,23 @@ class ISarSharedPreferences extends SharedPreferences {
   }
 
   @override
-  Future<bool> getBool(String key, {bool defValue = false}) {
-    return _preferences.get<bool>(key).then((value) => value ?? defValue);
+  Future<bool?> getBool(String key) {
+    return _preferences.get<bool>(key);
   }
 
   @override
-  Future<double> getDouble(String key, {double defValue = 0.0}) {
-    return _preferences.get<double>(key).then((value) => value ?? defValue);
+  Future<double?> getDouble(String key) {
+    return _preferences.get<double>(key);
   }
 
   @override
-  Future<int> getInt(String key, {int defValue = 0}) {
-    return _preferences.get<int>(key).then((value) => value ?? defValue);
+  Future<int?> getInt(String key) {
+    return _preferences.get<int>(key);
   }
 
   @override
-  Future<String> getString(String key, {String defValue = ""}) {
-    return _preferences.get<String>(key).then((value) => value ?? defValue);
+  Future<String?> getString(String key) {
+    return _preferences.get<String>(key);
   }
 
   @override

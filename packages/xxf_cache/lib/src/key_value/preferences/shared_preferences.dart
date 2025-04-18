@@ -18,13 +18,13 @@ abstract class SharedPreferences {
 
   Future<void> putDouble(String key, double value);
 
-  Future<String> getString(String key, {String defValue = ""});
+  Future<String?> getString(String key);
 
-  Future<int> getInt(String key, {int defValue = 0});
+  Future<int?> getInt(String key);
 
-  Future<bool> getBool(String key, {bool defValue = false});
+  Future<bool?> getBool(String key);
 
-  Future<double> getDouble(String key, {double defValue = 0.0});
+  Future<double?> getDouble(String key);
 
   Future<void> remove(String key);
 

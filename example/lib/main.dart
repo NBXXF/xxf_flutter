@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void test() {
     final key = "xxx";
-    SharedPreferences.getInstance().getString(key, defValue: "").then((value) {
+    SharedPreferences.getInstance().getString(key).then((value) {
       logI("=========>cached:$key =$value");
     });
     SharedPreferences.getInstance().putString(key, "$_counter");
