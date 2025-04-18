@@ -1,6 +1,6 @@
-name: xxf_cache
-description: "缓存框架"
-version: 0.0.4
+name: xxf_arch
+description: "A Routing and State Manager Flutter package project."
+version: 0.0.1
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -10,18 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  isar: ^3.1.0+1
-  isar_flutter_libs: ^3.1.0+1
-  # 官方的 性能差
-  # shared_preferences: ^2.0.11
+  #自动注入路由框架,优于go_router+go_router_builder
+  auto_route: ^10.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  #生成插件
+  #自动注入路由框架
   build_runner:
-  isar_generator: ^3.1.0+1
+  auto_route_generator: ^10.0.1
+
 
 flutter:
 
