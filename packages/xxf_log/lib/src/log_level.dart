@@ -1,8 +1,11 @@
 /// 日志等级
-class LogLevel {
-  static const int verbose = 2;
-  static const int debug = 3;
-  static const int info = 4;
-  static const int warn = 5;
-  static const int error = 6;
+enum LogLevel {
+  verbose(2),
+  debug(3),
+  info(4),
+  warn(5),
+  error(6);
+
+  final int value;
+  const LogLevel(this.value);
 }

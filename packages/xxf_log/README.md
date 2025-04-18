@@ -15,13 +15,8 @@ and the Flutter guide for
 
 ## Features
 
-/// LogUtils
-/// 优势1,先判断环境,是不是应该打印,再执行回调,以回调的形式能避免业务转换或者获取其他变量,包括对象的toString()等方法带来的消耗
-/// 优势2,可配置各种数据结构的解析,不单纯是支持string,支持各种数据自定义,请参考parser
-//        MaterialPageRoute(
-//                     builder:
-//                         (context) => LogUtils.config.logger.getLoggerWidget(),
-//                   ),
+1. 先判断环境,是不是应该打印,再执行回调,以回调的形式能避免业务转换或者获取其他变量,包括对象的toString()等方法带来的消耗
+2. 可配置各种数据结构的解析,不单纯是支持string,支持各种数据自定义,请参考parser
 
 ## Getting started
 
@@ -30,13 +25,19 @@ start using the package.
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+  logE("=========>count:$_counter");
+  logE("=========>take:$measureNano");
 ```
-
+跳转log日志ui
+```dart
+   Navigator.of(context).push(
+      MaterialPageRoute(
+          builder:
+          (context) => LogUtils.config.logger.getLoggerWidget(),
+      ),
+   );
+```
 ## Additional information
 
 Tell users more about the package: where to find more information, how to

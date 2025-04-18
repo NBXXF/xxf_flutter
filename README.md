@@ -38,7 +38,8 @@ xxf_flutter: ^0.0.2
 1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
 2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
 3. [http用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_http)
-4. [桌面端](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_desktop)
+4. [log 用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_log)
+5. [桌面端](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_desktop)
 
 ## Additional information
 

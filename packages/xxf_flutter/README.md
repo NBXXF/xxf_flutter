@@ -11,15 +11,11 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-XXF框架集合
+For more information, see https://github.com/NBXXF/xxf_flutter
 
 ## Features
 
-1. json框架
-2. lifecycle框架
-3. http框架
-4. 性能框架
-5. 基础组件
+For more information, see https://github.com/NBXXF/xxf_flutter
 
 ## Getting started
 dependencies:
@@ -27,9 +23,7 @@ xxf_flutter: ^0.0.2
 
 ## Usage
 
-1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
-2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
-3. [http用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_http)
+For more information, see https://github.com/NBXXF/xxf_flutter
 
 
 ## Additional information

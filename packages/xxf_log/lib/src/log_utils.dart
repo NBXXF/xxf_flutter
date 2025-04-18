@@ -19,36 +19,36 @@ class LogUtils {
     return "Log";
   }
 
-  static bool _shouldLog(int level) {
+  static bool _shouldLog(dynamic message, LogLevel level) {
     if (config.logInterceptor != null) {
-      return !config.logInterceptor!.onIntercept(level);
+      return !config.logInterceptor!.onIntercept(message, level);
     } else {
       return true;
     }
   }
 
   static void logV({String? tag, dynamic message}) {
-    if (!_shouldLog(LogLevel.verbose)) return;
+    if (!_shouldLog(message, LogLevel.verbose)) return;
     config.logger.logV(tag ?? _getTag(), _parse(message));
   }
 
   static void logD({String? tag, dynamic message}) {
-    if (!_shouldLog(LogLevel.debug)) return;
+    if (!_shouldLog(message, LogLevel.debug)) return;
     config.logger.logD(tag ?? _getTag(), _parse(message));
   }
 
   static void logI({String? tag, dynamic message}) {
-    if (!_shouldLog(LogLevel.info)) return;
+    if (!_shouldLog(message, LogLevel.info)) return;
     config.logger.logI(tag ?? _getTag(), _parse(message));
   }
 
   static void logW({String? tag, dynamic message}) {
-    if (!_shouldLog(LogLevel.warn)) return;
+    if (!_shouldLog(message, LogLevel.warn)) return;
     config.logger.logW(tag ?? _getTag(), _parse(message));
   }
 
   static void logE({String? tag, dynamic message}) {
-    if (!_shouldLog(LogLevel.error)) return;
+    if (!_shouldLog(message, LogLevel.error)) return;
     config.logger.logE(tag ?? _getTag(), _parse(message));
   }
 
