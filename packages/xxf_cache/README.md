@@ -15,21 +15,26 @@ and the Flutter guide for
 
 ## Features
 
-1. key_value存储
+1. key_value存储,速度比官方shared_preferences 快5倍,底层使用isar
 2. 数据库存储
 
 ## Getting started
+```yaml
+dependencies:
+  xxf_cache: ^0.0.3
+```
 
-List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+  void test() {
+  final key = "xxx";
+  SharedPreferences.getInstance().getString(key).then((value) {
+    logI("=========>cached:$key =$value");
+  });
+  SharedPreferences.getInstance().putString(key, "$_counter");
+}
 ```
 
 ## Additional information
