@@ -12,7 +12,8 @@ dependencies:
     sdk: flutter
   #自动注入路由框架,优于go_router+go_router_builder
   auto_route: ^10.0.1
-
+  #依赖注入框架
+  get_it: ^8.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

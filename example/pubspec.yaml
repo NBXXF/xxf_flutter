@@ -27,6 +27,8 @@ dependencies:
     path: ../packages/xxf_log
   xxf_cache:
     path: ../packages/xxf_cache
+  xxf_arch:
+    path: ../packages/xxf_arch
 
 dev_dependencies:
   flutter_test:
