@@ -1,3 +1,5 @@
+import 'package:example/router/app_router.dart' show AppRouter;
+import 'package:example/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:xxf_arch/xxf_arch.dart';
 import 'package:xxf_log/xxf_log.dart';
@@ -14,20 +16,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final appRouter = AppRouter();
+    rootRouter=appRouter;
+    return MaterialApp.router(
+      routerConfig: appRouter.config(),
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      )
     );
   }
 }
 
+@RoutePage()
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
 
-  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -63,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text("demo"),
       ),
       body: Center(
         child: Column(
@@ -83,6 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         (context) => LogUtils.config.logger.getLoggerWidget(),
                   ),
                 );
+              },
+            ),
+            GestureDetector(
+              child: Text("router"),
+              onTap: () {
+                context.router.push(TestInfoRoute());
               },
             ),
           ],
