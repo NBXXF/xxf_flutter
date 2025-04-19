@@ -29,7 +29,7 @@ dependencies:
 
 ```dart
 class MyApp extends StatelessWidget {
-  final appRouter = AppRouter();
+  final _appRouter = AppRouter();
 
   MyApp({super.key});
 
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RouterApp.router(
-      router: appRouter,
+      router: _appRouter,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

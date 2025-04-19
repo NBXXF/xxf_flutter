@@ -19,15 +19,16 @@ XXF框架集合
 1. json框架
 2. lifecycle框架
 3. http框架
-4. 性能框架
-5. 基础组件,loading,toast
-6. 桌面端[窗口控制,系统托盘,context_menu]
-7. 权限
-8. 日志
-9. 自适应布局
-10. 缓存key-value/data-base
-11. 依赖注入
-12. 多环境配置 flutter_dotenv
+4. 路由
+5. 性能框架
+6. 基础组件,loading,toast
+7. 桌面端[窗口控制,系统托盘,context_menu]
+8. 权限
+9. 日志
+10. 自适应布局
+11. 缓存key-value/data-base
+12. 依赖注入
+13. 多环境配置 flutter_dotenv
 
 ## Getting started
 dependencies:
@@ -38,8 +39,9 @@ xxf_flutter: ^0.0.2
 1. [json用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_json)
 2. [lifecycle用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_lifecycle)
 3. [http用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_http)
-4. [log 用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_log)
-5. [桌面端](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_desktop)
+4. [路由用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_arch)
+5. [log 用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_log)
+6. [桌面端](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_desktop)
 
 ## Additional information
 
