@@ -7,23 +7,23 @@ import 'package:xxf_extensions/xxf_extensions.dart';
 import 'package:xxf_cache/xxf_cache.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final appRouter = AppRouter();
+
+  MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final appRouter = AppRouter();
-    rootRouter=appRouter;
-    return MaterialApp.router(
-      routerConfig: appRouter.config(),
+    return RouterApp.router(
+      router: appRouter,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      )
+      ),
     );
   }
 }
@@ -31,7 +31,6 @@ class MyApp extends StatelessWidget {
 @RoutePage()
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
-
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

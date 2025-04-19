@@ -1,6 +1,6 @@
 name: xxf_arch
 description: "A Routing and State Manager Flutter package project."
-version: 0.0.2
+version: 0.0.3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #生命周期管理组件
+  xxf_lifecycle:
   #自动注入路由框架,优于go_router+go_router_builder
   auto_route: ^10.0.1
   #依赖注入框架

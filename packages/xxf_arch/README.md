@@ -21,17 +21,30 @@ Routing and State Manager
 
 ## Getting started
 
-List prerequisites and provide or point to information on how to
-start using the package.
-
+```yaml
+dependencies:
+  xxf_arch: ^0.0.3
+```
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
+class MyApp extends StatelessWidget {
+  final appRouter = AppRouter();
 
-const like = 'sample';
+  MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return RouterApp.router(
+      router: appRouter,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+    );
+  }
+}
 ```
 
 ## Additional information
