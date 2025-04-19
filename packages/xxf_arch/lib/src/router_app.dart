@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:xxf_arch/src/router_manager.dart';
 import 'package:xxf_lifecycle/xxf_lifecycle.dart';
-import '../xxf_arch.dart' show rootRouter;
 
 ///创建绑定路由的app
 ///路由采用auto_route
@@ -10,7 +10,7 @@ import '../xxf_arch.dart' show rootRouter;
 class RouterApp extends MaterialApp {
   RouterApp.router({
     ///自定义路由相关配置
-    required RootStackRouter router,
+    required RootStackRouter Function() routerBuilder,
     DeepLinkTransformer? deepLinkTransformer,
     DeepLinkBuilder? deepLinkBuilder,
     String? navRestorationScopeId,
@@ -65,7 +65,7 @@ class RouterApp extends MaterialApp {
     super.useInheritedMediaQuery = false,
     super.themeAnimationStyle,
   }) : super.router(
-         routerConfig: router.config(
+         routerConfig: initRootRouter(routerBuilder).config(
            deepLinkTransformer: deepLinkTransformer,
            deepLinkBuilder: deepLinkBuilder,
            navRestorationScopeId: navRestorationScopeId,
@@ -85,8 +85,5 @@ class RouterApp extends MaterialApp {
            reevaluateListenable: reevaluateListenable,
            clipBehavior: clipBehavior,
          ),
-       ) {
-    ///赋值全局的路由管理器
-    rootRouter = router;
-  }
+       );
 }

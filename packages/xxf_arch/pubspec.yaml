@@ -16,6 +16,8 @@ dependencies:
   auto_route: ^10.0.1
   #依赖注入框架
   get_it: ^8.0.3
+  #状态管理器
+  riverpod: ^2.6.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
