@@ -1,38 +1,29 @@
 import 'package:dio/dio.dart' as dio;
-import 'package:talker_dio_logger/talker_dio_logger.dart';
-import '../impl/talker_logger.dart';
+import 'package:xxf_log/src/log_utils.dart';
+
+import 'impl/logging_http_log_interceptor.dart' show LoggingHttpLogInterceptor;
+import 'impl/talker_http_log_interceptor.dart' show TalkerHttpLogInterceptor;
 
 /// 网络日志拦截器（基于 TalkerDioLogger 包装）
 class HttpLogInterceptor extends dio.LogInterceptor {
-  late final TalkerDioLogger _logger;
+  LoggingHttpLogInterceptor? _logging;
+  TalkerHttpLogInterceptor? _talker;
 
   HttpLogInterceptor({
     super.request,
-    bool requestHeader = true,
-    bool requestBody = true,
-    bool responseHeader = true,
-    bool responseBody = true,
+    super.requestHeader,
+    super.requestBody,
+    super.responseHeader,
+    super.responseBody,
     super.error,
-    @Deprecated("Use TalkerDioLoggerSettings instead")
-    super.logPrint, // 标记废弃，但不影响编译
-  }) : super(
-         requestHeader: requestHeader,
-         requestBody: requestBody,
-         responseHeader: responseHeader,
-         responseBody: responseBody,
-       ) {
-    /// 在构造函数体内初始化 _logger，确保父类参数已赋值
-    _logger = TalkerDioLogger(
-      talker: TalkerLogger().logger,
-      settings: TalkerDioLoggerSettings(
-        printRequestData: requestBody,
+  });
 
-        /// 对应父类 requestBody
-        printRequestHeaders: requestHeader,
-        printResponseData: responseBody,
-        printResponseHeaders: responseHeader,
-      ),
-    );
+  dio.LogInterceptor getProxyLogInterceptor() {
+    if (LogUtils.config.logger is TalkerHttpLogInterceptor) {
+      return _talker ??= TalkerHttpLogInterceptor();
+    } else {
+      return _logging ??= LoggingHttpLogInterceptor();
+    }
   }
 
   @override
@@ -40,12 +31,12 @@ class HttpLogInterceptor extends dio.LogInterceptor {
     dio.RequestOptions options,
     dio.RequestInterceptorHandler handler,
   ) {
-    _logger.onRequest(options, handler);
+    getProxyLogInterceptor().onRequest(options, handler);
   }
 
   @override
   void onError(dio.DioException err, dio.ErrorInterceptorHandler handler) {
-    _logger.onError(err, handler);
+    getProxyLogInterceptor().onError(err, handler);
   }
 
   @override
@@ -53,6 +44,6 @@ class HttpLogInterceptor extends dio.LogInterceptor {
     dio.Response response,
     dio.ResponseInterceptorHandler handler,
   ) {
-    _logger.onResponse(response, handler);
+    getProxyLogInterceptor().onResponse(response, handler);
   }
 }
