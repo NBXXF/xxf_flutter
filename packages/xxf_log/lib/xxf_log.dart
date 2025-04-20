@@ -13,3 +13,4 @@ export 'src/parser/impl/string_parser.dart';
 
 export 'src/impl/logging_logger.dart';
 export 'src/impl/talker_logger.dart';
+export 'src/http/http_log_interceptor.dart';

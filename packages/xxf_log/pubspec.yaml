@@ -12,11 +12,12 @@ dependencies:
     sdk: flutter
   logging: ^1.2.0
   talker_flutter: ^3.2.2
-
+  talker_dio_logger: ^2.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+
 
 flutter:
 
