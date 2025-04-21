@@ -4,6 +4,7 @@ import '../../impl/talker_logger.dart';
 
 ///TalkerDioLogger
 class TalkerHttpLogInterceptor extends dio.LogInterceptor {
+  ///只有TalkerDioLogger 是将request response 聚合成一行来打印的,其他都是单行来打印,包括pretty_dio_logger
   late final TalkerDioLogger _logger;
 
   TalkerHttpLogInterceptor({
