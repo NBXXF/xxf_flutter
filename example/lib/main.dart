@@ -89,7 +89,8 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
               child: Text("router"),
               onTap: () {
-                context.router.push(TestInfoRoute());
+                context.router.pushPath("/A/page");
+                ///context.router.push(TestInfoRoute());
               },
             ),
           ],

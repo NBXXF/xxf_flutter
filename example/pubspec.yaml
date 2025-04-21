@@ -29,7 +29,13 @@ dependencies:
     path: ../packages/xxf_cache
   xxf_arch:
     path: ../packages/xxf_arch
-  auto_route: ^10.0.1
+
+  module_a:
+    path: ./packages/module_a
+
+dependency_overrides:
+  xxf_lifecycle:
+    path: ../packages/xxf_lifecycle
 
 dev_dependencies:
   flutter_test:

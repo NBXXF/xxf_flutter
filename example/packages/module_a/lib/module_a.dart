@@ -1,0 +1,1 @@
+export 'package:module_a/module_a.dart';
