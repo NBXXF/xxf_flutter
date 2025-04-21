@@ -49,6 +49,29 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+增加屏幕适配
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  
+  @override
+  Widget build(BuildContext context) {
+    return AdaptedApp(
+      designSize: Size(375, 812), // 设计稿尺寸
+      minTextAdapt: true,  // 启用文本自适应
+      builder: (context) {
+        return RouterApp.router(
+          routerBuilder: () => AppRouter(),
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          ),
+        );
+      },
+    );
+  }
+}
+```
 
 ## Additional information
 

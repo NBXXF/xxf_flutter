@@ -798,10 +798,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_arch
-      sha256: "30ac740f8100274811889997f274ab04824933dc39fcf510ceca3ce4fd3e91a8"
+      sha256: d22062f6e5178aaf4cfaa18dac5903324a6a6e2dfbc37705e60a8c123317a01b
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   xxf_cache:
     dependency: "direct main"
     description:

@@ -1,6 +1,6 @@
 name: xxf_arch
 description: "A Routing and State Manager Flutter package project."
-version: 0.0.4
+version: 0.0.5
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:

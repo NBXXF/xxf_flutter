@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
+    return AdaptedApp(
       designSize: Size(375, 812), // 设计稿尺寸
       minTextAdapt: true,  // 启用文本自适应
-      builder: (context, child) {
+      builder: (context) {
         return RouterApp.router(
           routerBuilder: () => AppRouter(),
           title: 'Flutter Demo',

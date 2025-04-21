@@ -1050,7 +1050,7 @@ packages:
       path: "../packages/xxf_arch"
       relative: true
     source: path
-    version: "0.0.4"
+    version: "0.0.5"
   xxf_cache:
     dependency: "direct main"
     description:
