@@ -1,6 +1,6 @@
 name: xxf_arch
 description: "A Routing and State Manager Flutter package project."
-version: 0.0.6
+version: 0.0.7
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -20,6 +20,11 @@ dependencies:
   get_it: ^8.0.3
   #状态管理器
   hooks_riverpod: ^2.6.1
+  flutter_riverpod: ^2.6.1
+  riverpod: ^2.6.1
+  flutter_hooks: ^0.21.2
+
+
   #屏幕适配
   flutter_screenutil: ^5.9.3
 
