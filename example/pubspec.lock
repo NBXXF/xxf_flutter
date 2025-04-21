@@ -1150,7 +1150,7 @@ packages:
       path: "../packages/xxf_arch"
       relative: true
     source: path
-    version: "0.0.5"
+    version: "0.0.6"
   xxf_cache:
     dependency: "direct main"
     description:
@@ -1207,7 +1207,7 @@ packages:
       path: "../packages/xxf_resources"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.3"
   xxf_speed:
     dependency: "direct main"
     description:

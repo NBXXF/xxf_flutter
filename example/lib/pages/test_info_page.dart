@@ -1,3 +1,4 @@
+import 'package:example/http/api_client.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:xxf_arch/xxf_arch.dart';
 
@@ -16,6 +17,11 @@ class TestInfoPage extends StatelessWidget {
           },
         ),
         Text("TestPage"),
+        GestureDetector(child: Text("http"),onTap: (){
+          ApiClient().getUsers().then((value){
+
+          });
+        })
       ],
     );
   }

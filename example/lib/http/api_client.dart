@@ -1,5 +1,6 @@
 
 import 'package:xxf_http/xxf_http.dart';
+import 'package:xxf_log/xxf_log.dart';
 
 import '../model/data.dart';
 import 'apis.dart';
@@ -15,11 +16,12 @@ abstract class ApiClient {
   @GET(Apis.users)
   Future<ResponseData> getUsers();
 }
-class MyClientAdapter extends ClientAdapter{
+class MyClientAdapter extends ClientAdapter {
+  static final Dio _instance = Dio()..interceptors.add(HttpLogInterceptor());
+
   @override
   Dio adapt() {
-    // TODO: 创建自己的client
-    throw UnimplementedError();
+    return _instance;
   }
 }
 // class ResultCallAdapter<T> extends CallAdapter<Future<T>, Future<Result<T>>> {

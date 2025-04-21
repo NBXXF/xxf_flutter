@@ -40,6 +40,8 @@ dependencies:
 dependency_overrides:
   xxf_lifecycle:
     path: ../packages/xxf_lifecycle
+  xxf_resources:
+    path: ../packages/xxf_resources
 
 dev_dependencies:
   flutter_test:

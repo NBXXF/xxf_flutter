@@ -1,4 +1,5 @@
 import 'package:example/router/app_router.dart' show AppRouter;
+import 'package:example/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:module_a/router/module_a_router.gr.dart';
 import 'package:module_b/router/module_b_router.gr.dart';
@@ -10,53 +11,29 @@ import 'package:xxf_resources/xxf_resources.dart';
 
 import 'package:module_a/generated/l10n.dart' as module_a_l10n;
 import 'package:module_b/generated/l10n.dart' as module_b_l10n;
-import 'package:intl/src/intl_helpers.dart';
-import 'package:intl/message_lookup_by_library.dart';
+
 void main() {
   runApp(MyApp());
 }
-class MultiCompositeMessageLookup extends CompositeMessageLookup {
-@override
-void addLocale(String localeName, Function findLocale) {
-  logD("==========>localeName:${localeName}");
-  final canonical = Intl.canonicalizedLocale(localeName);
-  final newLocale = findLocale(canonical);
-  if (newLocale != null) {
-    final oldLocale = availableMessages[localeName];
-    if (oldLocale != null && newLocale != oldLocale) {
-      if (newLocale is! MessageLookupByLibrary) {
-        throw Exception('Merge locale messages failed, type ${newLocale.runtimeType} is not supported.');
-      }
-      // solve issue https://github.com/dart-lang/i18n/issues/798 if you are using     intl_translate and intl_util both.
-      if (oldLocale.messages is Map<String, Function> && newLocale.messages is! Map<String, Function>) {
-        final newMessages = newLocale.messages.map((key, value) => MapEntry(key, value as Function));
-        oldLocale.messages.addAll(newMessages);
-      } else {
-        oldLocale.messages.addAll(newLocale.messages);
-      }
-      return;
-    }
-    super.addLocale(localeName, findLocale);
-  }
-}
-}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    initializeInternalMessageLookup(() => MultiCompositeMessageLookup());
     return AdaptedApp(
       designSize: Size(375, 812), // 设计稿尺寸
-      minTextAdapt: true,  // 启用文本自适应
+      minTextAdapt: true, // 启用文本自适应
       builder: (context) {
         return RouterApp.router(
           routerBuilder: () => AppRouter(),
           title: 'Flutter Demo',
+
           ///希望应用始终使用特定语言（例如英语）
           ///locale: const Locale('en', 'US'),
           locale: const Locale('zh', 'CN'),
+
           ///加载本地化资源的委托
           ///https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization?utm_source=chatgpt.com
           localizationsDelegates: [
@@ -66,6 +43,7 @@ class MyApp extends StatelessWidget {
             module_a_l10n.S.delegate,
             module_b_l10n.S.delegate,
           ],
+
           ///Flutter 会根据设备的语言设置，在 supportedLocales 中查找匹配的语言环境，并使用相应的本地化资源。如果未找到匹配项，Flutter 将使用列表中的第一个语言环境作为默认值。
           supportedLocales: [
             Locale('en'), // English
@@ -133,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
               child: Text("logger"),
               onTap: () {
-                Navigator.of(context).push(
+                context.router.pushNativeRoute(
                   MaterialPageRoute(
                     builder:
                         (context) => LogUtils.config.logger.getLoggerWidget(),
@@ -147,6 +125,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ///context.router.pushPath("/A/page");
                 ///context.router.push(ModuleARoute());
                 context.router.push(ModuleBRoute());
+              },
+            ),
+            GestureDetector(
+              child: Text("test"),
+              onTap: () {
+                context.router.push(TestInfoRoute());
               },
             ),
           ],
