@@ -17,12 +17,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return RouterApp.router(
-      routerBuilder: () => AppRouter(),
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+    return ScreenUtilInit(
+      designSize: Size(375, 812), // 设计稿尺寸
+      minTextAdapt: true,  // 启用文本自适应
+      builder: (context, child) {
+        return RouterApp.router(
+          routerBuilder: () => AppRouter(),
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          ),
+        );
+      },
     );
   }
 }
