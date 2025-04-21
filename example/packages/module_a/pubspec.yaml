@@ -14,6 +14,8 @@ dependencies:
     path: ../../../packages/xxf_lifecycle
   xxf_arch:
     path: ../../../packages/xxf_arch
+  xxf_resources:
+    path: ../../../packages/xxf_resources
 
 dependency_overrides:
   xxf_lifecycle:
@@ -61,3 +63,5 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true

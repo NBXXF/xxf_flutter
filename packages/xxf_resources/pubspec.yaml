@@ -14,8 +14,10 @@ dependencies:
   flutter_gen: ^5.10.0
 
   #国际化,idea 使用flutter intl插件自动生成清单文件
+  #教程 https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization?utm_source=chatgpt.com
   flutter_localizations:
     sdk: flutter
+  #messages_all.dart 会引入intl包
   intl: ^0.19.0
 
 #配置idea插件flutter intl
