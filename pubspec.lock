@@ -5,18 +5,18 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: dc27559385e905ad30838356c5f5d574014ba39872d732111cd07ac0beff4c57
+      sha256: e55636ed79578b9abca5fecf9437947798f5ef7456308b5cb85720b793eac92f
       url: "https://pub.dev"
     source: hosted
-    version: "80.0.0"
+    version: "82.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
-      sha256: "192d1c5b944e7e53b24b5586db760db934b177d4147c42fbca8c8c5f1eb8d11e"
+      sha256: f4c21c94eb4623b183c1014a470196b3910701bea9b926e6c91270d756e6fc60
       url: "https://pub.dev"
     source: hosted
-    version: "7.3.0"
+    version: "7.4.1"
   ansicolor:
     dependency: transitive
     description:
@@ -173,10 +173,10 @@ packages:
     dependency: transitive
     description:
       name: file
-      sha256: "1b92bec4fc2a72f59a8e15af5f52cd441e4a7860b49499d69dfa817af20e925d"
+      sha256: a3b4f84adafef897088c160faf7dfffb7696046cb13ae90b508c2cbc95d3b8d4
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.4"
+    version: "7.0.1"
   fixnum:
     dependency: transitive
     description:
@@ -219,6 +219,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_screenutil:
+    dependency: transitive
+    description:
+      name: flutter_screenutil
+      sha256: "8239210dd68bee6b0577aa4a090890342d04a136ce1c81f98ee513fc0ce891de"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.9.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -449,10 +457,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "0ca7359dad67fd7063cb2892ab0c0737b2daafd807cf1acecd62374c8fae6c12"
+      sha256: d0d310befe2c8ab9e7f393288ccbb11b60c019c6b5afc21973eeee4dda2b35e9
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.16"
+    version: "2.2.17"
   path_provider_foundation:
     dependency: transitive
     description:
@@ -618,6 +626,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.0"
+  talker_dio_logger:
+    dependency: transitive
+    description:
+      name: talker_dio_logger
+      sha256: c298f5e3c007db67320d58da57af3c3aa4eee51eef43e5e1cbb3fc8114007a1e
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   talker_flutter:
     dependency: transitive
     description:
@@ -782,34 +798,34 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_arch
-      sha256: "0df898bf65bd10229c803116ca7de649a934d2f11f50f58b4a3882b71e2014ab"
+      sha256: "30ac740f8100274811889997f274ab04824933dc39fcf510ceca3ce4fd3e91a8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   xxf_cache:
     dependency: "direct main"
     description:
       name: xxf_cache
-      sha256: "862c88fa6a438bae74c5714d63cda7f5a0a666cfff71149cfba5e68ecb251562"
+      sha256: "7e96bd9025c9624fcffcda94e07d48871dd5598ff36df9785aaf77f660fc73ca"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   xxf_extensions:
     dependency: "direct main"
     description:
       name: xxf_extensions
-      sha256: f1d18c23154c14164e68ce4d3c8bf49992c0ac0704c8c834992ddf19f02d4d1f
+      sha256: "3fa3daf0007fb8cca6992f73456303751097f692b5e02bb1c8444fafcdd40abe"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   xxf_http:
     dependency: "direct main"
     description:
       name: xxf_http
-      sha256: aee675cf4c5d23320c340d8572093f025263014a68d810c63de625b29cd4f083
+      sha256: "9dd726d39d1be59090a6609375db7c8adb8652137e15cec9dc575610dc9c9e69"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   xxf_json:
     dependency: "direct main"
     description:
@@ -830,10 +846,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_log
-      sha256: be4f43c756c6aad85be3dc27ed7e3e462c1f901837ab66ed4aa771ff7376f26b
+      sha256: "4cb399637c1d66fed77c17ba5083e9039af4b17a0fb75a5d42873d6637ec790c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.6"
   xxf_resources:
     dependency: "direct main"
     description:
