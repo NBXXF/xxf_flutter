@@ -1,1 +1,1 @@
-export 'package:module_a/module_a.dart';
+export 'pages/module_a_page.dart';

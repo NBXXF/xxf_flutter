@@ -1,6 +1,7 @@
 import 'package:example/router/app_router.dart' show AppRouter;
 import 'package:example/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:module_a/router/module_a_router.gr.dart';
 import 'package:xxf_arch/xxf_arch.dart';
 import 'package:xxf_log/xxf_log.dart';
 import 'package:xxf_extensions/xxf_extensions.dart';
@@ -89,8 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
               child: Text("router"),
               onTap: () {
-                context.router.pushPath("/A/page");
-                ///context.router.push(TestInfoRoute());
+                ///context.router.pushPath("/A/page");
+                context.router.push(ModuleARoute());
               },
             ),
           ],
