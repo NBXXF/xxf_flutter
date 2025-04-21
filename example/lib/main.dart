@@ -10,17 +10,43 @@ import 'package:xxf_resources/xxf_resources.dart';
 
 import 'package:module_a/generated/l10n.dart' as module_a_l10n;
 import 'package:module_b/generated/l10n.dart' as module_b_l10n;
-
+import 'package:intl/src/intl_helpers.dart';
+import 'package:intl/message_lookup_by_library.dart';
 void main() {
   runApp(MyApp());
 }
-
+class MultiCompositeMessageLookup extends CompositeMessageLookup {
+@override
+void addLocale(String localeName, Function findLocale) {
+  logD("==========>localeName:${localeName}");
+  final canonical = Intl.canonicalizedLocale(localeName);
+  final newLocale = findLocale(canonical);
+  if (newLocale != null) {
+    final oldLocale = availableMessages[localeName];
+    if (oldLocale != null && newLocale != oldLocale) {
+      if (newLocale is! MessageLookupByLibrary) {
+        throw Exception('Merge locale messages failed, type ${newLocale.runtimeType} is not supported.');
+      }
+      // solve issue https://github.com/dart-lang/i18n/issues/798 if you are using     intl_translate and intl_util both.
+      if (oldLocale.messages is Map<String, Function> && newLocale.messages is! Map<String, Function>) {
+        final newMessages = newLocale.messages.map((key, value) => MapEntry(key, value as Function));
+        oldLocale.messages.addAll(newMessages);
+      } else {
+        oldLocale.messages.addAll(newLocale.messages);
+      }
+      return;
+    }
+    super.addLocale(localeName, findLocale);
+  }
+}
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    initializeInternalMessageLookup(() => MultiCompositeMessageLookup());
     return AdaptedApp(
       designSize: Size(375, 812), // 设计稿尺寸
       minTextAdapt: true,  // 启用文本自适应

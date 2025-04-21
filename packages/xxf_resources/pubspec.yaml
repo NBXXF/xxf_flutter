@@ -1,6 +1,6 @@
 name: xxf_resources
 description: "资源文件与国际化"
-version: 0.0.1
+version: 0.0.3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:

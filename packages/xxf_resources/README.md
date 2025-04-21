@@ -24,11 +24,9 @@ start using the package.
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+  ///解决多模块国际化语言文件读取问题
+initializeInternalMessageLookup(() => MultiCompositeMessageLookup());
 ```
 
 ## Additional information
