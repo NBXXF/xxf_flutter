@@ -1,11 +1,15 @@
 import 'package:example/router/app_router.dart' show AppRouter;
-import 'package:example/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:module_a/router/module_a_router.gr.dart';
+import 'package:module_b/router/module_b_router.gr.dart';
 import 'package:xxf_arch/xxf_arch.dart';
 import 'package:xxf_log/xxf_log.dart';
 import 'package:xxf_extensions/xxf_extensions.dart';
 import 'package:xxf_cache/xxf_cache.dart';
+import 'package:xxf_resources/xxf_resources.dart';
+
+import 'package:module_a/generated/l10n.dart' as module_a_l10n;
+import 'package:module_b/generated/l10n.dart' as module_b_l10n;
 
 void main() {
   runApp(MyApp());
@@ -24,7 +28,25 @@ class MyApp extends StatelessWidget {
         return RouterApp.router(
           routerBuilder: () => AppRouter(),
           title: 'Flutter Demo',
+          ///希望应用始终使用特定语言（例如英语）
+          ///locale: const Locale('en', 'US'),
+          locale: const Locale('zh', 'CN'),
+          ///加载本地化资源的委托
+          ///https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization?utm_source=chatgpt.com
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            module_a_l10n.S.delegate,
+            module_b_l10n.S.delegate,
+          ],
+          ///Flutter 会根据设备的语言设置，在 supportedLocales 中查找匹配的语言环境，并使用相应的本地化资源。如果未找到匹配项，Flutter 将使用列表中的第一个语言环境作为默认值。
+          supportedLocales: [
+            Locale('en'), // English
+            Locale('zh'), // China
+          ],
           theme: ThemeData(
+            scaffoldBackgroundColor: Colors.grey[100], // 全局背景色
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
         );
@@ -97,7 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("router"),
               onTap: () {
                 ///context.router.pushPath("/A/page");
-                context.router.push(ModuleARoute());
+                ///context.router.push(ModuleARoute());
+                context.router.push(ModuleBRoute());
               },
             ),
           ],

@@ -29,9 +29,13 @@ dependencies:
     path: ../packages/xxf_cache
   xxf_arch:
     path: ../packages/xxf_arch
+  xxf_resources:
+    path: ../packages/xxf_resources
 
   module_a:
     path: ./packages/module_a
+  module_b:
+    path: ./packages/module_b
 
 dependency_overrides:
   xxf_lifecycle:

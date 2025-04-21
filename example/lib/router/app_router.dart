@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:module_a/router/module_a_router.dart';
+import 'package:module_b/router/module_b_router.dart';
 /// ✅ 确保导入生成的 .gr.dart 文件
 import 'app_router.gr.dart';
 
@@ -16,11 +17,13 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       page: TestInfoRoute.page,
     ),
-    ...ModuleARouter().routes
+    ...ModuleARouter().routes,
+    ...ModuleBRouter().routes
   ];
 
   @override
   List<AutoRouteGuard> get guards => [
-    ...ModuleARouter().guards
+    ...ModuleARouter().guards,
+    ...ModuleBRouter().guards
   ];
 }

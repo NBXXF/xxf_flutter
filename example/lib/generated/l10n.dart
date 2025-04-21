@@ -54,16 +54,6 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
-
-  /// `Account Error  `
-  String get home_account_error {
-    return Intl.message(
-      'Account Error  ',
-      name: 'home_account_error',
-      desc: '',
-      args: [],
-    );
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

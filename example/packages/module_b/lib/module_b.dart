@@ -1,0 +1,1 @@
+export 'router/module_b_router.dart';

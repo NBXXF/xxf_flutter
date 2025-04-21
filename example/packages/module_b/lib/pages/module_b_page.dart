@@ -4,8 +4,8 @@ import 'package:xxf_arch/xxf_arch.dart';
 import '../generated/l10n.dart';
 
 @RoutePage()
-class ModuleAPage extends StatelessWidget {
-  const ModuleAPage({super.key});
+class ModuleBPage extends StatelessWidget {
+  const ModuleBPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +17,9 @@ class ModuleAPage extends StatelessWidget {
             context.router.back();
           },
         ),
-        Text('ModuleAPage'),
-        Text('text: ${S.of(context).home_account_error}'),
-        Text('text2: ${S.current.home_account_error}'),
-        GestureDetector(child: Text("切换语言"), onTap: () {
-
-        }),
+        Text('ModuleBPage'),
+        Text('text: ${S.of(context).b_test}'),
+        Text('text2: ${S.current.b_test}'),
       ],
     );
   }

@@ -55,14 +55,9 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Account Error  `
-  String get home_account_error {
-    return Intl.message(
-      'Account Error  ',
-      name: 'home_account_error',
-      desc: '',
-      args: [],
-    );
+  /// `b test`
+  String get b_test {
+    return Intl.message('b test', name: 'b_test', desc: '', args: []);
   }
 }
 
