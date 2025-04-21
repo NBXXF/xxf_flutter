@@ -24,6 +24,11 @@ Routing and State Manager
 ```yaml
 dependencies:
   xxf_arch: ^0.0.3
+  
+dev_dependencies:
+  #自动注入路由框架
+  build_runner:
+  auto_route_generator: ^10.0.1
 ```
 ## Usage
 
