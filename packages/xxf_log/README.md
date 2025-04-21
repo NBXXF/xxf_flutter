@@ -40,6 +40,12 @@ start using the package.
       ),
    );
 ```
+网络日志监控
+```dart
+Dio dio = Dio();
+dio.interceptors.add(HttpLogInterceptor());
+```
+
 ## Additional information
 
 Tell users more about the package: where to find more information, how to
