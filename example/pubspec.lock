@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: analyzer
-      sha256: f4c21c94eb4623b183c1014a470196b3910701bea9b926e6c91270d756e6fc60
+      sha256: "97536280ed2b09e659b8916be70ec1fb83f2317b653847e2b5efb581add506bf"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.1"
+    version: "7.4.2"
   ansi_styles:
     dependency: transitive
     description:
@@ -1174,14 +1174,14 @@ packages:
       path: "../packages/xxf_arch"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   xxf_cache:
     dependency: "direct main"
     description:
       path: "../packages/xxf_cache"
       relative: true
     source: path
-    version: "0.0.4"
+    version: "0.0.6"
   xxf_extensions:
     dependency: "direct main"
     description:

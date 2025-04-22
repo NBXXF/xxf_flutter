@@ -36,6 +36,12 @@ dependencies:
   SharedPreferences.getInstance().putString(key, "$_counter");
 }
 ```
+isar方法直接操作
+```dart
+IsarKeyValue().set("xx",1)
+///同步方式
+IsarSyncKeyValue().set("xx",1)
+```
 
 ## Additional information
 

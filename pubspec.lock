@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: analyzer
-      sha256: f4c21c94eb4623b183c1014a470196b3910701bea9b926e6c91270d756e6fc60
+      sha256: "97536280ed2b09e659b8916be70ec1fb83f2317b653847e2b5efb581add506bf"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.1"
+    version: "7.4.2"
   ansicolor:
     dependency: transitive
     description:
@@ -206,6 +206,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.10.0"
+  flutter_hooks:
+    dependency: transitive
+    description:
+      name: flutter_hooks
+      sha256: b772e710d16d7a20c0740c4f855095026b31c7eb5ba3ab67d2bd52021cd9461d
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.21.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -219,6 +227,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_riverpod:
+    dependency: transitive
+    description:
+      name: flutter_riverpod
+      sha256: "9532ee6db4a943a1ed8383072a2e3eeda041db5657cdf6d2acecf3c21ecbe7e1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.1"
   flutter_screenutil:
     dependency: transitive
     description:
@@ -285,6 +301,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.0"
+  hooks_riverpod:
+    dependency: transitive
+    description:
+      name: hooks_riverpod
+      sha256: "70bba33cfc5670c84b796e6929c54b8bc5be7d0fe15bb28c2560500b9ad06966"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.6.1"
   http_parser:
     dependency: transitive
     description:
@@ -798,18 +822,18 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_arch
-      sha256: "5f02182d52f9465ea94378d830e5f4192011c2c17424fe3387fdec583e75dd6d"
+      sha256: f5febf631c463fc11dafb12ea0532fb7e05b2e9139bfb9f6231bdbd4cf37fade
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   xxf_cache:
     dependency: "direct main"
     description:
       name: xxf_cache
-      sha256: "7e96bd9025c9624fcffcda94e07d48871dd5598ff36df9785aaf77f660fc73ca"
+      sha256: c2ac8d203e40e8e2037db968951160f51bffa228eb133ff431553e23b9aa2795
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.6"
   xxf_extensions:
     dependency: "direct main"
     description:
@@ -854,10 +878,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_resources
-      sha256: "8eb7d0f0240ab71ad3f1d1d65bc13b17e225f50729d48abcc35c2fcf48c43355"
+      sha256: "573e97a924d7fc1df58c9e0a69be28fef057cbbf6845f9f926de0c287a785129"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.3"
   xxf_speed:
     dependency: "direct main"
     description:
