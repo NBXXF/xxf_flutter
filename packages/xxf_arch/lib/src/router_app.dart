@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:xxf_arch/src/router_manager.dart';
 import 'package:xxf_lifecycle/xxf_lifecycle.dart';
+import 'snack_bar/snack_bar_top_level.dart' as snack_bar_tl;
 
 ///创建绑定路由的app
 ///路由采用auto_route
@@ -25,7 +26,6 @@ class RouterApp extends MaterialApp {
 
     ///自带属性
     super.key,
-    super.scaffoldMessengerKey,
     super.routeInformationProvider,
     super.routeInformationParser,
     super.routerDelegate,
@@ -65,6 +65,10 @@ class RouterApp extends MaterialApp {
     super.useInheritedMediaQuery = false,
     super.themeAnimationStyle,
   }) : super.router(
+         ///初始化全局的scaffoldMessengerKey
+         scaffoldMessengerKey: snack_bar_tl.scaffoldMessengerKey,
+
+         ///初始化路由
          routerConfig: initRootRouter(routerBuilder).config(
            deepLinkTransformer: deepLinkTransformer,
            deepLinkBuilder: deepLinkBuilder,
