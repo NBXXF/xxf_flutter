@@ -24,11 +24,15 @@ start using the package.
 
 ## Usage
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+各种hash
 ```dart
-const like = 'sample';
+final str="xxx";
+str.sha256()
+```
+
+lru缓存
+```dart
+LruCache<String,String>();
 ```
 
 ## Additional information
