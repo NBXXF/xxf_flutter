@@ -1181,7 +1181,7 @@ packages:
       path: "../packages/xxf_cache"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   xxf_extensions:
     dependency: "direct main"
     description:
@@ -1238,7 +1238,7 @@ packages:
       path: "../packages/xxf_speed"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.0.2"
   xxf_widgets:
     dependency: "direct main"
     description:

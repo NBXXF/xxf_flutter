@@ -91,7 +91,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     SharedPreferences.getInstance().putString(key, "$_counter");
   }
-  var isarSyncKeyValue = IsarSyncKeyValue();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,10 +124,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 final key="test";
 
                 logD("=============>isarSyncKeyValue set take time:${measureTimeMillis((){
-                  isarSyncKeyValue.set(key, "${DateTime.now()}");
+                  IsarSyncKeyValue().set(key, "${DateTime.now()}");
                 })}");
                 logD("=============>isarSyncKeyValue get take time:${measureTimeMillis((){
-                  final value=isarSyncKeyValue.get(key);
+                  final value=IsarSyncKeyValue().get(key);
                   logD("=============>isarSyncKeyValue get value:$value");
                 })}");
               },

@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:isar/isar.dart';
 
+import '../../isar/isar_utils.dart';
+import 'isar_key_value_config.dart';
 import 'key_value.dart';
 
 /// 封装了底层的 Isar 数据库，实现了一个键值存储的 API。
 class IsarKeyValue {
-  IsarKeyValue({this.name = 'default', this.directory = '.'});
+  IsarKeyValue({this.name = dbName, this.directory = '.'});
 
   /// 数据库名称
   final String name;
@@ -18,7 +20,7 @@ class IsarKeyValue {
 
   /// 打开并初始化 Isar 数据库
   Future<Isar> _open() async {
-    final isar = await Isar.open(
+    final isar = await IsarUtils.open(
       [KeyValueSchema],
       directory: directory,
       name: name,

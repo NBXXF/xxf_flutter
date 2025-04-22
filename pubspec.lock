@@ -830,10 +830,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_cache
-      sha256: c2ac8d203e40e8e2037db968951160f51bffa228eb133ff431553e23b9aa2795
+      sha256: "0b21bd9b83725f5e2c5b2e6c894323c57365f320536c10037bb1e2b10aaf2536"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   xxf_extensions:
     dependency: "direct main"
     description:
@@ -886,10 +886,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_speed
-      sha256: "0fef9828532678cbf886179b8f9d7579e14bbd69a77bc775f34dd5380e498f37"
+      sha256: d5baf92490aa4ca56dc5df878d3c575abc9b5508fc821adfa8480f6d4bb0ea6b
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   xxf_widgets:
     dependency: "direct main"
     description:
