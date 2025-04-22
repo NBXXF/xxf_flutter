@@ -493,6 +493,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
+  injectable:
+    dependency: transitive
+    description:
+      name: injectable
+      sha256: "5e1556ea1d374fe44cbe846414d9bab346285d3d8a1da5877c01ad0774006068"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.0"
   intl:
     dependency: transitive
     description:
@@ -1238,7 +1246,7 @@ packages:
       path: "../packages/xxf_speed"
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.3"
   xxf_widgets:
     dependency: "direct main"
     description:

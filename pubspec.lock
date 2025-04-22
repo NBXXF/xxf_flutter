@@ -886,10 +886,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_speed
-      sha256: d5baf92490aa4ca56dc5df878d3c575abc9b5508fc821adfa8480f6d4bb0ea6b
+      sha256: "9a9b1c6cd5f41d4a1d897fd2df26e0765e75f40e39a4192a91f9b30c745278b5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   xxf_widgets:
     dependency: "direct main"
     description:

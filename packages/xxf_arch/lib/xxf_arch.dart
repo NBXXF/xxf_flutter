@@ -2,6 +2,7 @@ export 'package:auto_route/auto_route.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:get_it/get_it.dart';
 export 'src/get_it_extensions.dart';
+export 'package:injectable/injectable.dart';
 
 ///<<<<<<<<< riverpod <<<<<<<<<<<<<<<<<<
 ///riverpod 关系hooks_riverpod>flutter_riverpod>riverpod
