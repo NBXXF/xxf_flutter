@@ -15,7 +15,7 @@ dependencies:
   #资源文件生成与国际化
   xxf_resources:
   #流处理
-  xxf_flow: ^0.0.2
+  xxf_flow: ^0.0.3
 
 
   #自动注入路由框架,优于go_router+go_router_builder

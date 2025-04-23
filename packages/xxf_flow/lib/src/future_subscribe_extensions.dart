@@ -13,13 +13,11 @@ extension FutureSubscribeExtensions<T> on Future<T> {
   }) {
     return doOnData((value) {
           onData(value);
-          onDone?.call();
         })
         .catchError((error, stack) {
           if (onError != null) {
             onError(error, stack);
           }
-          onDone?.call();
         })
         .whenComplete(() {
           onDone?.call();

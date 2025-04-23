@@ -1,6 +1,6 @@
 name: xxf_flow
 description: "A new Flutter Flow package project."
-version: 0.0.2
+version: 0.0.3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -13,7 +13,7 @@ dependencies:
   #流式编程,更多高阶函数
   rxdart: ^0.28.0
   #增强 Dart 异步编程的能力
-  async: ^2.13.0
+  async: ^2.12.0
 
 dev_dependencies:
   flutter_test:
