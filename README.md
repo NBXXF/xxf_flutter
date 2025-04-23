@@ -42,6 +42,7 @@ xxf_flutter: ^0.0.2
 4. [路由用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_arch)
 5. [log 用法](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_log)
 6. [桌面端](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_desktop)
+7. [基础架构](https://github.com/NBXXF/xxf_flutter/tree/main/packages/xxf_arch)
 
 ## Additional information
 

@@ -23,4 +23,5 @@ export 'src/router_app.dart';
 ///ui组件联动
 export 'src/flow/flow_error_extensions.dart';
 export 'src/flow/flow_hud_extensions.dart';
-export 'src/snack_bar/snack_bar_top_level.dart';
+export 'src/toast/toast_utils.dart';
+export 'src/toast/toast_extensions.dart';

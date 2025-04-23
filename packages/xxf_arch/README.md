@@ -73,6 +73,16 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+接管流的操作
+```dart
+///绑定错误信息提示
+future.bindErrorNotice()
+
+///绑定整个流控制
+future.bindProgressHud()
+```
+
+
 ## Additional information
 
 Tell users more about the package: where to find more information, how to

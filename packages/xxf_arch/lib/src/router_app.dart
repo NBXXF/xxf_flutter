@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:xxf_arch/src/router_manager.dart';
 import 'package:xxf_lifecycle/xxf_lifecycle.dart';
-import 'snack_bar/snack_bar_top_level.dart' as snack_bar_tl;
 
 ///创建绑定路由的app
 ///路由采用auto_route
@@ -26,11 +26,12 @@ class RouterApp extends MaterialApp {
 
     ///自带属性
     super.key,
+    super.scaffoldMessengerKey,
     super.routeInformationProvider,
     super.routeInformationParser,
     super.routerDelegate,
     super.backButtonDispatcher,
-    super.builder,
+    TransitionBuilder? builder,
     super.title,
     super.onGenerateTitle,
     super.onNavigationNotification,
@@ -65,10 +66,17 @@ class RouterApp extends MaterialApp {
     super.useInheritedMediaQuery = false,
     super.themeAnimationStyle,
   }) : super.router(
-         ///初始化全局的scaffoldMessengerKey
-         scaffoldMessengerKey: snack_bar_tl.scaffoldMessengerKey,
+         builder: (context, child) {
+           ///警告:不要随意调整调用BotToastInit函数的位置
+           final botToastBuilder = BotToastInit();
+           if (builder != null) {
+             child = builder(context, child);
+           }
 
-         ///初始化路由
+           ///https://github.com/MMMzq/bot_toast/blob/master/README_zh.md
+           ///最后初始化botToast
+           return botToastBuilder(context, child);
+         },
          routerConfig: initRootRouter(routerBuilder).config(
            deepLinkTransformer: deepLinkTransformer,
            deepLinkBuilder: deepLinkBuilder,
@@ -80,6 +88,16 @@ class RouterApp extends MaterialApp {
              final lifecycleObserver = defaultLifecycleObserver;
              if (!list.contains(lifecycleObserver)) {
                list.insert(0, lifecycleObserver);
+             }
+
+             ///初始化BotToast
+             final contains =
+                 list.indexWhere(
+                   (element) => element is BotToastNavigatorObserver,
+                 ) >=
+                 0;
+             if (!contains) {
+               list.add(BotToastNavigatorObserver());
              }
              return list;
            },

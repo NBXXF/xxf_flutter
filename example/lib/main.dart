@@ -122,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("key_value"),
               onTap: () {
                 final key="test";
-                showTopSnackBar(content: Text("xxxxx"));
+                showToast(key);
                 logD("=============>isarSyncKeyValue set take time:${measureTimeMillis((){
                   IsarSyncKeyValue().set(key, "${DateTime.now()}");
                 })}");
