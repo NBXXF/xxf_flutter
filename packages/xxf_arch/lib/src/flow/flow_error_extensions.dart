@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:xxf_arch/src/toast/toast_utils.dart';
+import 'package:xxf_flow/xxf_flow.dart';
 
 typedef ErrorHandler = void Function(Object? error);
 
@@ -12,11 +13,10 @@ ErrorHandler errorHandler = (Object? error) {
 ///提供常用拓展
 extension ToastFutureExtensions<T> on Future<T> {
   ///绑定错误信息,自动提示
-  Future<T> bindErrorNotice<E extends Object>({bool Function(E error)? test}) {
-    return onError((error, stackTrace) {
+  Future<T> bindErrorNotice() {
+    return doOnError((error, stackTrace) {
       _handleError(error);
-      return Future.error(error ?? "", stackTrace);
-    }, test: test);
+    });
   }
 }
 
@@ -26,12 +26,9 @@ void _handleError(Object? error) {
 
 extension ToastStreamExtension<T> on Stream<T> {
   ///绑定错误信息,自动提示
-  Stream<T> bindErrorNotice<E extends Object>({
-    bool Function(dynamic error)? test,
-  }) {
-    return handleError((error, stackTrace) {
+  Stream<T> bindErrorNotice() {
+    return doOnError((error, stackTrace) {
       _handleError(error);
-      return Stream.error(error, stackTrace);
-    }, test: test);
+    });
   }
 }

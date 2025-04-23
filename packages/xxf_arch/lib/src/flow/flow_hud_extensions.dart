@@ -1,5 +1,6 @@
 import 'package:xxf_arch/src/hud/progress_hud.dart';
 import 'package:xxf_arch/src/hud/progress_hud_impl.dart';
+import 'package:xxf_flow/xxf_flow.dart';
 
 typedef HudHandler = ProgressHud Function();
 
@@ -17,15 +18,13 @@ extension HudFutureExtension<T> on Future<T> {
   }) {
     var progressHud = hudHandler();
     progressHud.showLoadingDialog(loadingNotice ?? "");
-    return then((value) {
+    return doOnData((value) {
           progressHud.dismissLoadingDialogWithSuccess(successNotice ?? "");
-          return Future.value(value);
         })
-        .onError((error, stackTrace) {
+        .doOnError((error, stackTrace) {
           progressHud.dismissLoadingDialogWithFail(errorNotice ?? "$error");
-          return Future.error(error ?? "", stackTrace);
         })
-        .whenComplete(() {
+        .doOnDone(() {
           progressHud.dismissLoadingDialog();
         });
   }
@@ -40,12 +39,14 @@ extension HudStreamExtension<T> on Stream<T> {
   }) {
     var progressHud = hudHandler();
     progressHud.showLoadingDialog(loadingNotice ?? "");
-    return map((value) {
-      progressHud.dismissLoadingDialogWithSuccess(successNotice ?? "");
-      return value;
-    }).handleError((error, stackTrace) {
-      progressHud.dismissLoadingDialogWithFail(errorNotice ?? "$error");
-      return Stream.error(error, stackTrace);
-    });
+    return doOnData((value) {
+          progressHud.dismissLoadingDialogWithSuccess(successNotice ?? "");
+        })
+        .doOnError((error, stackTrace) {
+          progressHud.dismissLoadingDialogWithFail(errorNotice ?? "$error");
+        })
+        .doOnDone(() {
+          progressHud.dismissLoadingDialog();
+        });
   }
 }
