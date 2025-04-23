@@ -1,3 +1,4 @@
+
 extension FutureDoExtensions<T> on Future<T> {
   Future<T> doOnData(void Function(T value) onData) {
     return then((value) {

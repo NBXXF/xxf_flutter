@@ -10,8 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  #流失编程,更多高阶函数
+  #流式编程,更多高阶函数
   rxdart: ^0.28.0
+  #增强 Dart 异步编程的能力
+  async: ^2.13.0
 
 dev_dependencies:
   flutter_test:
