@@ -94,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
     SharedPreferences.getInstance().putString(key, "$_counter");
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,25 +125,49 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
               child: Text("log test"),
               onTap: () {
-                logD("=============>test logD:${DateTime.now()}");
-                print("=============>test print:${DateTime.now()}");
-                debugPrint("=============>test debugPrint:${DateTime.now()}");
-                developer.log("=============>test developer.log:${DateTime.now()}");
-                stderr.writeln("=============>test stderr.writeln:${DateTime.now()}");
+                void measure(String tag, void Function() call) {
+                  var measureM = measureMicros(call);
+                  print("========>take（$tag）:$measureM");
+                }
+
+                var dateTime = DateTime.now();
+                measure("logD", () {
+                  logD("=============>test logD:$dateTime");
+                });
+
+                measure("print", () {
+                  print("=============>test print:$dateTime");
+                });
+
+                measure("debugPrint", () {
+                  debugPrint("=============>test debugPrint:$dateTime");
+                });
+
+                measure("developer.log", () {
+                  developer.log("=============>test developer.log:$dateTime");
+                });
+
+                measure("stderr.writeln", () {
+                  stderr.writeln("=============>test stderr.writeln:$dateTime");
+                });
               },
             ),
             GestureDetector(
               child: Text("key_value"),
               onTap: () {
-                final key="test";
+                final key = "test";
                 showToast(key);
-                logD("=============>isarSyncKeyValue set take time:${measureTimeMillis((){
-                  IsarSyncKeyValue().set(key, "${DateTime.now()}");
-                })}");
-                logD("=============>isarSyncKeyValue get take time:${measureTimeMillis((){
-                  final value=IsarSyncKeyValue().get(key);
-                  logD("=============>isarSyncKeyValue get value:$value");
-                })}");
+                logD(
+                  "=============>isarSyncKeyValue set take time:${measureTimeMillis(() {
+                    IsarSyncKeyValue().set(key, "${DateTime.now()}");
+                  })}",
+                );
+                logD(
+                  "=============>isarSyncKeyValue get take time:${measureTimeMillis(() {
+                    final value = IsarSyncKeyValue().get(key);
+                    logD("=============>isarSyncKeyValue get value:$value");
+                  })}",
+                );
               },
             ),
             GestureDetector(

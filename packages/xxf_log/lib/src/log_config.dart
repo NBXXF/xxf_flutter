@@ -32,7 +32,7 @@ class LogConfig {
        parsers =
            parsers ??
            [CollectionParser(), MapParser(), JsonParser(), StringParser()],
-       releaseOutMethodType = releaseOutMethodType ?? LogMethodType.debugPrint;
+       releaseOutMethodType = releaseOutMethodType ?? LogMethodType.print;
 
   String dispatch(Object data) {
     for (var parser in parsers) {
