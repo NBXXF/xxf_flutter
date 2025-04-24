@@ -1,6 +1,6 @@
 name: xxf_log
 description: "log tools"
-version: 0.0.7
+version: 0.0.8
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   logging: ^1.2.0
-  talker_flutter: ^3.2.2
-  talker_dio_logger: ^2.4.0
+  talker_flutter: ^4.7.2
+  talker_dio_logger: ^4.7.2
   #库
   dio: ^5.8.0+1
 

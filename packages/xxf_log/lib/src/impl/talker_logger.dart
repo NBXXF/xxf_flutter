@@ -11,7 +11,9 @@ class TalkerLogger implements Logger {
   static final TalkerLogger _instance = TalkerLogger._();
 
   ///这里共享一个就行了,避免缓存更多的Logger
-  final logger = taker_flutter.Talker(logger: _DevToolsTalkerLogger());
+  final logger = taker_flutter.Talker(
+    logger: kDebugMode ? _DevToolsTalkerLogger() : null,
+  );
 
   factory TalkerLogger() => _instance;
 
@@ -38,20 +40,58 @@ class TalkerLogger implements Logger {
   }
 }
 
+///打印到DevTools 面板
 class _DevToolsTalkerLogger extends taker_flutter.TalkerLogger {
+  _DevToolsTalkerLogger({super.settings, super.formatter, super.filter});
+
   @override
   void log(msg, {taker_flutter.LogLevel? level, taker_flutter.AnsiPen? pen}) {
-    level ??= taker_flutter.LogLevel.debug;
-    if (kDebugMode) {
-      developer.log(
-        msg,
-        name: 'Talker',
+    if (!settings.enable) {
+      return;
+    }
+    final selectedLevel = level ?? taker_flutter.LogLevel.debug;
+    final selectedPen =
+        pen ??
+        settings.colors[selectedLevel] ??
+        (taker_flutter.AnsiPen()..gray());
 
-        /// 将 Talker 的日志级别映射到整数
-        level: level.index * 1000,
+    if (filter.shouldLog(msg, selectedLevel)) {
+      final formattedMsg = formatter.fmt(
+        taker_flutter.LogDetails(
+          message: msg,
+          level: selectedLevel,
+          pen: selectedPen,
+        ),
+        settings,
       );
-    } else {
-      debugPrint('[${level.name}] $msg');
+      developer.log(
+        formattedMsg,
+        name: settings.defaultTitle,
+        level: mapLogLevelToDeveloperLevel(selectedLevel),
+        error: error,
+        stackTrace: null,
+        time: null,
+      );
+    }
+  }
+
+  /// 转换成developer的日志级别
+  int mapLogLevelToDeveloperLevel(taker_flutter.LogLevel level) {
+    switch (level) {
+      case taker_flutter.LogLevel.verbose:
+        return 300; // FINEST
+      case taker_flutter.LogLevel.debug:
+        return 500; // FINE
+      case taker_flutter.LogLevel.info:
+        return 800; // INFO
+      case taker_flutter.LogLevel.warning:
+        return 900; // WARNING
+      case taker_flutter.LogLevel.error:
+        return 1000; // SEVERE
+      case taker_flutter.LogLevel.critical:
+        return 1200; // SHOUT
+      default:
+        return 800; // 默认 INFO
     }
   }
 }

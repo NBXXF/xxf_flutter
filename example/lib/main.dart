@@ -1,3 +1,6 @@
+import 'dart:developer' as developer;
+import 'dart:io';
+
 import 'package:example/router/app_router.dart' show AppRouter;
 import 'package:example/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             GestureDetector(
-              child: Text("logger"),
+              child: Text("logger ui"),
               onTap: () {
                 context.router.pushNativeRoute(
                   MaterialPageRoute(
@@ -116,6 +119,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         (context) => LogUtils.config.logger.getLoggerWidget(),
                   ),
                 );
+              },
+            ),
+            GestureDetector(
+              child: Text("log test"),
+              onTap: () {
+                logD("=============>test logD:${DateTime.now()}");
+                print("=============>test print:${DateTime.now()}");
+                debugPrint("=============>test debugPrint:${DateTime.now()}");
+                developer.log("=============>test developer.log:${DateTime.now()}");
+                stderr.writeln("=============>test stderr.writeln:${DateTime.now()}");
               },
             ),
             GestureDetector(

@@ -32,8 +32,23 @@ class LoggingLogger implements Logger {
           stackTrace: record.stackTrace,
         );
       } else {
-        /// 输出到 stdout
-        debugPrint('${record.level.name}: ${record.time}: ${record.message}');
+        final buffer = StringBuffer();
+
+        /// 基础信息
+        buffer.write('${record.level.name} [${record.time}] ${record.message}');
+
+        /// 错误信息
+        if (record.error != null) {
+          buffer.write('\n  ERROR: ${record.error}');
+        }
+
+        /// 堆栈跟踪
+        if (record.stackTrace != null) {
+          buffer.write('\n  STACKTRACE:\n${record.stackTrace}');
+        }
+
+        /// 输出完整日志
+        debugPrint(buffer.toString());
       }
     });
 

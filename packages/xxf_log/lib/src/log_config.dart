@@ -5,7 +5,6 @@ import 'package:xxf_log/src/parser/impl/string_parser.dart';
 import 'package:xxf_log/src/parser/log_parser.dart';
 
 import '../xxf_log.dart' show TalkerLogger;
-import 'impl/logging_logger.dart';
 import 'log_interceptor.dart' show LogInterceptor;
 import 'log_observer.dart';
 import 'logger.dart' show Logger;
@@ -22,7 +21,7 @@ class LogConfig {
     Logger? logger,
     List<LogParser>? parsers,
     this.observer,
-  }) : logger = logger ?? LoggingLogger(),
+  }) : logger = logger ?? TalkerLogger(),
 
        ///默认支持集合,字典,json
        parsers =
