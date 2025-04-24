@@ -4,8 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart' as logging;
 import 'package:logging/logging.dart' show hierarchicalLoggingEnabled;
+import 'package:xxf_log/src/log_utils.dart';
 
 import '../logger.dart' show Logger;
+import '../utils/out_put_utils.dart';
 
 /// 用官方的logging 实现
 class LoggingLogger implements Logger {
@@ -19,7 +21,7 @@ class LoggingLogger implements Logger {
     hierarchicalLoggingEnabled = true;
 
     /// 添加默认的 PrintHandler（输出到控制台）
-    logging.Logger.root.onRecord.listen((record) {
+    logging.Logger.root.onRecord.listen((record) async {
       ///Flutter 的 DevTools 日志面板监听的是 dart:developer 的 log() 函数或 debugPrint() 的输出，而不是直接监听 print()。
       if (kDebugMode) {
         ///使用 developer.log 输出到 DevTools
@@ -48,7 +50,7 @@ class LoggingLogger implements Logger {
         }
 
         /// 输出完整日志
-        debugPrint(buffer.toString());
+        OutPutUtils.releaseOut(buffer.toString());
       }
     });
 

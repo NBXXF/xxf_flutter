@@ -3,6 +3,7 @@ import 'dart:developer' as developer show log;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:talker_flutter/talker_flutter.dart' as taker_flutter;
+import 'package:xxf_log/src/utils/out_put_utils.dart';
 
 import '../logger.dart' show Logger;
 
@@ -11,9 +12,7 @@ class TalkerLogger implements Logger {
   static final TalkerLogger _instance = TalkerLogger._();
 
   ///这里共享一个就行了,避免缓存更多的Logger
-  final logger = taker_flutter.Talker(
-    logger: kDebugMode ? _DevToolsTalkerLogger() : null,
-  );
+  final logger = taker_flutter.Talker(logger: _InnerTalkerLogger());
 
   factory TalkerLogger() => _instance;
 
@@ -41,8 +40,8 @@ class TalkerLogger implements Logger {
 }
 
 ///打印到DevTools 面板
-class _DevToolsTalkerLogger extends taker_flutter.TalkerLogger {
-  _DevToolsTalkerLogger({super.settings, super.formatter, super.filter});
+class _InnerTalkerLogger extends taker_flutter.TalkerLogger {
+  _InnerTalkerLogger({super.settings, super.formatter, super.filter});
 
   @override
   void log(msg, {taker_flutter.LogLevel? level, taker_flutter.AnsiPen? pen}) {
@@ -64,14 +63,18 @@ class _DevToolsTalkerLogger extends taker_flutter.TalkerLogger {
         ),
         settings,
       );
-      developer.log(
-        formattedMsg,
-        name: settings.defaultTitle,
-        level: mapLogLevelToDeveloperLevel(selectedLevel),
-        error: error,
-        stackTrace: null,
-        time: null,
-      );
+      if (kDebugMode) {
+        developer.log(
+          formattedMsg,
+          name: settings.defaultTitle,
+          level: mapLogLevelToDeveloperLevel(selectedLevel),
+          error: error,
+          stackTrace: null,
+          time: null,
+        );
+      } else {
+        OutPutUtils.releaseOut(formattedMsg);
+      }
     }
   }
 

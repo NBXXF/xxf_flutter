@@ -5,6 +5,7 @@ export 'src/log_level.dart';
 export 'src/log_level_interceptor.dart';
 export 'src/log_observer.dart';
 export 'src/log_config.dart';
+export 'src/log_method_type.dart';
 
 export 'src/parser/log_parser.dart';
 export 'src/parser/impl/collection_parser.dart';

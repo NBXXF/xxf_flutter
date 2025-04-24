@@ -1,3 +1,4 @@
+import 'package:xxf_log/src/log_method_type.dart';
 import 'package:xxf_log/src/parser/impl/collection_parser.dart';
 import 'package:xxf_log/src/parser/impl/json_parser.dart';
 import 'package:xxf_log/src/parser/impl/map_parser.dart';
@@ -16,17 +17,22 @@ class LogConfig {
   List<LogParser> parsers;
   LogObserver? observer;
 
+  ///正式包下面打印的方式
+  LogMethodType releaseOutMethodType;
+
   LogConfig({
     this.interceptor,
     Logger? logger,
     List<LogParser>? parsers,
     this.observer,
+    LogMethodType? releaseOutMethodType,
   }) : logger = logger ?? TalkerLogger(),
 
        ///默认支持集合,字典,json
        parsers =
            parsers ??
-           [CollectionParser(), MapParser(), JsonParser(), StringParser()];
+           [CollectionParser(), MapParser(), JsonParser(), StringParser()],
+       releaseOutMethodType = releaseOutMethodType ?? LogMethodType.debugPrint;
 
   String dispatch(Object data) {
     for (var parser in parsers) {

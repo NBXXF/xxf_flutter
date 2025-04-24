@@ -902,10 +902,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_log
-      sha256: caa6607c7d973691f1729d773736ac03f83c189fdf20bc2de1224229ca77483d
+      sha256: "986b3d6662ad872f694ddb91eea7d036ba0b079753b93075f1c3101f9c1e0fc4"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   xxf_resources:
     dependency: "direct main"
     description:
