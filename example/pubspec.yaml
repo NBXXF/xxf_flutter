@@ -64,6 +64,9 @@ dev_dependencies:
   #路由生成
   auto_route_generator: ^10.0.1
 
+  #key value自动生成
+  xxf_cache_generator:
+    path: ../packages/xxf_cache_generator
 flutter:
 
   # The following line ensures that the Material Icons font is

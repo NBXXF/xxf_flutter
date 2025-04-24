@@ -1,0 +1,10 @@
+
+builders:
+  kvBuilder:
+    import: "package:xxf_cache_generator/xxf_cache_generator.dart"
+    builder_factories: ["kvBuilder"]
+    build_extensions: {".dart": [".xxf_cache_generator.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]
+
