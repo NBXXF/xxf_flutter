@@ -154,7 +154,7 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
     bodyBuilder.writeln("if ($_fieldPrefs!=null) return $_fieldPrefs!;");
     bodyBuilder.writeln("final appFlutterDir =Directory('\${Directory.systemTemp.parent.path}/app_flutter');");
     bodyBuilder.writeln("if (!appFlutterDir.existsSync()) appFlutterDir.createSync();");
-    bodyBuilder.writeln("return $_fieldPrefs??=$IsarSyncKeyValue();");
+    bodyBuilder.writeln("return $_fieldPrefs??=$IsarSyncKeyValue(directory: appFlutterDir.path);");
     return Method(
       (m) =>
           m

@@ -18,7 +18,7 @@ class _KvXxf extends KvXxf {
       '${Directory.systemTemp.parent.path}/app_flutter',
     );
     if (!appFlutterDir.existsSync()) appFlutterDir.createSync();
-    return _prefs ??= IsarSyncKeyValue();
+    return _prefs ??= IsarSyncKeyValue(directory: appFlutterDir.path);
   }
 
   @override
