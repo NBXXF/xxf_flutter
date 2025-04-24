@@ -7,12 +7,12 @@ Duration measureTime(void Function() block) {
 }
 
 ///纳秒
-int measureNanoTime(void Function() block) {
+int measureTimeNanos(void Function() block) {
   return measureTime(block).inMicroseconds * 1000;
 }
 
 ///微秒
-int measureMicros(void Function() block) {
+int measureTimeMicros(void Function() block) {
   return measureTime(block).inMicroseconds;
 }
 

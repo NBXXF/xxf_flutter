@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart' as logging;
 import 'package:logging/logging.dart' show hierarchicalLoggingEnabled;
-import 'package:xxf_log/src/log_utils.dart';
 
 import '../logger.dart' show Logger;
 import '../utils/out_put_utils.dart';

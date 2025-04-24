@@ -126,13 +126,13 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("log test"),
               onTap: () {
                 void measure(String tag, void Function() call) {
-                  var measureM = measureMicros(call);
-                  print("========>take（$tag）:$measureM");
+                  var measureM = measureTimeMicros(call);
+                  print("========>take（$tag）:$measureM us");
                 }
 
                 var dateTime = DateTime.now();
                 measure("logD", () {
-                  logD("=============>test logD:$dateTime");
+                  logD("=============>test logD:$dateTime",tag:"xx");
                 });
 
                 measure("print", () {
