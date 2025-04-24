@@ -1,5 +1,8 @@
+import 'dart:developer' as developer show log;
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:talker_flutter/talker_flutter.dart' show Talker, TalkerScreen;
+import 'package:talker_flutter/talker_flutter.dart' as taker_flutter;
 
 import '../logger.dart' show Logger;
 
@@ -8,7 +11,7 @@ class TalkerLogger implements Logger {
   static final TalkerLogger _instance = TalkerLogger._();
 
   ///这里共享一个就行了,避免缓存更多的Logger
-  final logger = Talker();
+  final logger = taker_flutter.Talker(logger: _DevToolsTalkerLogger());
 
   factory TalkerLogger() => _instance;
 
@@ -31,6 +34,24 @@ class TalkerLogger implements Logger {
 
   @override
   Widget getLoggerWidget() {
-    return TalkerScreen(talker: logger, appBarTitle: "log");
+    return taker_flutter.TalkerScreen(talker: logger, appBarTitle: "log");
+  }
+}
+
+class _DevToolsTalkerLogger extends taker_flutter.TalkerLogger {
+  @override
+  void log(msg, {taker_flutter.LogLevel? level, taker_flutter.AnsiPen? pen}) {
+    level ??= taker_flutter.LogLevel.debug;
+    if (kDebugMode) {
+      developer.log(
+        msg,
+        name: 'Talker',
+
+        /// 将 Talker 的日志级别映射到整数
+        level: level.index * 1000,
+      );
+    } else {
+      debugPrint('[${level.name}] $msg');
+    }
   }
 }
