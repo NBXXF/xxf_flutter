@@ -20,36 +20,111 @@ class LogUtils {
   }
 
   static bool _shouldLog(dynamic message, LogLevel level) {
-    if (config.logInterceptor != null) {
-      return !config.logInterceptor!.onIntercept(message, level);
+    if (config.interceptor != null) {
+      return !config.interceptor!.onIntercept(message, level);
     } else {
       return true;
     }
   }
 
-  static void logV({String? tag, dynamic message}) {
+  /// [message]：支持function,eg. ()=>xxx
+  static void logV(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     if (!_shouldLog(message, LogLevel.verbose)) return;
-    config.logger.logV(tag ?? _getTag(), _parse(message));
+    var parsedMessage = _parse(message);
+    var rawTag = tag ?? _getTag();
+    config.logger.logV(rawTag, parsedMessage);
+    config.observer?.onLogged(
+      LogLevel.verbose,
+      parsedMessage,
+      rawTag,
+      error,
+      stackTrace,
+    );
   }
 
-  static void logD({String? tag, dynamic message}) {
+  /// [message]：支持function,eg. ()=>xxx
+  static void logD(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     if (!_shouldLog(message, LogLevel.debug)) return;
-    config.logger.logD(tag ?? _getTag(), _parse(message));
+    var parsedMessage = _parse(message);
+    var rawTag = tag ?? _getTag();
+    config.logger.logD(rawTag, parsedMessage);
+    config.observer?.onLogged(
+      LogLevel.debug,
+      parsedMessage,
+      rawTag,
+      error,
+      stackTrace,
+    );
   }
 
-  static void logI({String? tag, dynamic message}) {
+  /// [message]：支持function,eg. ()=>xxx
+  static void logI(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     if (!_shouldLog(message, LogLevel.info)) return;
-    config.logger.logI(tag ?? _getTag(), _parse(message));
+    var parsedMessage = _parse(message);
+    var rawTag = tag ?? _getTag();
+    config.logger.logI(rawTag, parsedMessage);
+    config.observer?.onLogged(
+      LogLevel.info,
+      parsedMessage,
+      rawTag,
+      error,
+      stackTrace,
+    );
   }
 
-  static void logW({String? tag, dynamic message}) {
+  /// [message]：支持function,eg. ()=>xxx
+  static void logW(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     if (!_shouldLog(message, LogLevel.warn)) return;
-    config.logger.logW(tag ?? _getTag(), _parse(message));
+    var parsedMessage = _parse(message);
+    var rawTag = tag ?? _getTag();
+    config.logger.logW(rawTag, parsedMessage);
+    config.observer?.onLogged(
+      LogLevel.warn,
+      parsedMessage,
+      rawTag,
+      error,
+      stackTrace,
+    );
   }
 
-  static void logE({String? tag, dynamic message}) {
+  /// [message]：支持function,eg. ()=>xxx
+  static void logE(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     if (!_shouldLog(message, LogLevel.error)) return;
-    config.logger.logE(tag ?? _getTag(), _parse(message));
+    var parsedMessage = _parse(message);
+    var rawTag = tag ?? _getTag();
+    config.logger.logE(rawTag, parsedMessage);
+    config.observer?.onLogged(
+      LogLevel.error,
+      parsedMessage,
+      rawTag,
+      error,
+      stackTrace,
+    );
   }
 
   static String _parse(dynamic message) {

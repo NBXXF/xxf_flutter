@@ -2,9 +2,10 @@ import 'package:example/http/api_client.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:xxf_arch/xxf_arch.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:xxf_log/xxf_log.dart';
 
 @RoutePage()
-class TestInfoPage extends ConsumerWidget {
+class TestInfoPage extends HookConsumerWidget {
   final counterProvider = StateProvider<int>((ref) => 0);
 
   TestInfoPage({super.key});
@@ -28,7 +29,9 @@ class TestInfoPage extends ConsumerWidget {
           child: Text("http"),
           onTap: () {
             ref.read(counterProvider.notifier).state++;
-            ApiClient().getUsers().then((value) {});
+            ApiClient().getUsers2().listen((data){
+              logD("=============>$data");
+            });
           },
         ),
       ],

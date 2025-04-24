@@ -15,6 +15,10 @@ abstract class ApiClient {
 
   @GET(Apis.users)
   Future<ResponseData> getUsers();
+
+
+  @GET(Apis.users)
+  Stream<ResponseData> getUsers2();
 }
 class MyClientAdapter extends ClientAdapter {
   static final Dio _instance = Dio()..interceptors.add(HttpLogInterceptor());

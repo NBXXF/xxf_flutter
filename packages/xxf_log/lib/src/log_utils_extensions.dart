@@ -1,24 +1,53 @@
-import 'package:flutter/foundation.dart';
 import 'package:xxf_log/src/log_utils.dart';
 
-void logV(dynamic message, {String? tag}) {
-  LogUtils.logV(tag: tag, message: message);
+/// [message]：支持function,eg. ()=>xxx
+void logV(
+  dynamic message, {
+  String? tag,
+  Object? error,
+  StackTrace? stackTrace,
+}) {
+  LogUtils.logV(message, tag: tag, error: error, stackTrace: stackTrace);
 }
 
-void logD(dynamic message, {String? tag}) {
-  LogUtils.logD(tag: tag, message: message);
+/// [message]：支持function,eg. ()=>xxx
+void logD(
+  dynamic message, {
+  String? tag,
+  Object? error,
+  StackTrace? stackTrace,
+}) {
+  LogUtils.logD(message, tag: tag, error: error, stackTrace: stackTrace);
 }
 
-void logI(dynamic message, {String? tag}) {
-  LogUtils.logI(tag: tag, message: message);
+/// [message]：支持function,eg. ()=>xxx
+void logI(
+  dynamic message, {
+  String? tag,
+  Object? error,
+  StackTrace? stackTrace,
+}) {
+  LogUtils.logI(message, tag: tag, error: error, stackTrace: stackTrace);
 }
 
-void logW(dynamic message, {String? tag}) {
-  LogUtils.logW(tag: tag, message: message);
+/// [message]：支持function,eg. ()=>xxx
+void logW(
+  dynamic message, {
+  String? tag,
+  Object? error,
+  StackTrace? stackTrace,
+}) {
+  LogUtils.logW(message, tag: tag, error: error, stackTrace: stackTrace);
 }
 
-void logE(dynamic message, {String? tag}) {
-  LogUtils.logE(tag: tag, message: message);
+/// [message]：支持function,eg. ()=>xxx
+void logE(
+  dynamic message, {
+  String? tag,
+  Object? error,
+  StackTrace? stackTrace,
+}) {
+  LogUtils.logE(message, tag: tag, error: error, stackTrace: stackTrace);
 }
 
 ///日志拓展
@@ -36,28 +65,58 @@ extension LogUtilsExtensions on Object {
     return tag;
   }
 
-  void logV(dynamic message, {String? tag}) {
+  /// [message]：支持function,eg. ()=>xxx
+  void logV(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     tag ??= _getTag();
-    LogUtils.logV(tag: tag, message: message);
+    LogUtils.logV(message, tag: tag, error: error, stackTrace: stackTrace);
   }
 
-  void logD(dynamic message, {String? tag}) {
+  /// [message]：支持function,eg. ()=>xxx
+  void logD(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     tag ??= _getTag();
-    LogUtils.logD(tag: tag, message: message);
+    LogUtils.logD(message, tag: tag, error: error, stackTrace: stackTrace);
   }
 
-  void logI(dynamic message, {String? tag}) {
+  /// [message]：支持function,eg. ()=>xxx
+  void logI(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     tag ??= _getTag();
-    LogUtils.logI(tag: tag, message: message);
+    LogUtils.logI(message, tag: tag, error: error, stackTrace: stackTrace);
   }
 
-  void logW(dynamic message, {String? tag}) {
+  /// [message]：支持function,eg. ()=>xxx
+  void logW(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     tag ??= _getTag();
-    LogUtils.logW(tag: tag, message: message);
+    LogUtils.logW(message, tag: tag, error: error, stackTrace: stackTrace);
   }
 
-  void logE(dynamic message, {String? tag}) {
+  /// [message]：支持function,eg. ()=>xxx
+  void logE(
+    dynamic message, {
+    String? tag,
+    Object? error,
+    StackTrace? stackTrace,
+  }) {
     tag ??= _getTag();
-    LogUtils.logE(tag: tag, message: message);
+    LogUtils.logE(message, tag: tag, error: error, stackTrace: stackTrace);
   }
 }

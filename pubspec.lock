@@ -589,6 +589,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      sha256: "5c3004a4a8dbb94bd4bf5412a4def4acdaa12e12f269737a5751369e12d1a962"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.28.0"
   share_plus:
     dependency: transitive
     description:
@@ -838,10 +846,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_arch
-      sha256: c505b1b8ab14af9af7fdb79ee9ab704c6360a80c28777624a8c8158bdd32b388
+      sha256: "728d8bc03957ffca6023582a8819a942c7f856237c69761681db3e29a5f1cdb5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   xxf_cache:
     dependency: "direct main"
     description:
@@ -858,6 +866,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.2"
+  xxf_flow:
+    dependency: transitive
+    description:
+      name: xxf_flow
+      sha256: f9d6f079a4d2be315922186d4de9f362ff7337410f44e132587586db7f8acd84
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   xxf_http:
     dependency: "direct main"
     description:
@@ -886,10 +902,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_log
-      sha256: "4cb399637c1d66fed77c17ba5083e9039af4b17a0fb75a5d42873d6637ec790c"
+      sha256: "47b96bc239636cdc1c6ee66e8850627421da777fba38ea1d66b3d8ee3eb6543c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   xxf_resources:
     dependency: "direct main"
     description:

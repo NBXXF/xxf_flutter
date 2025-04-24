@@ -1,6 +1,6 @@
 name: xxf_log
 description: "log tools"
-version: 0.0.6
+version: 0.0.7
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
