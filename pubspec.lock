@@ -867,7 +867,7 @@ packages:
     source: hosted
     version: "0.0.2"
   xxf_flow:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: xxf_flow
       sha256: f9d6f079a4d2be315922186d4de9f362ff7337410f44e132587586db7f8acd84
