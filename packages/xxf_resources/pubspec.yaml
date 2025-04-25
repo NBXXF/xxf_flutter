@@ -32,10 +32,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
-  # 生成图片等资源文件
-  build_runner:
-  flutter_gen_runner:
-
 flutter:
 
   # To add assets to your package, add an assets section, like this:

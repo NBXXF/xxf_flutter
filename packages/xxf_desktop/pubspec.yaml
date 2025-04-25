@@ -1,6 +1,6 @@
 name: xxf_desktop
 description: "桌面端"
-version: 0.0.3
+version: 0.0.10+1
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:

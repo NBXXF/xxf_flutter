@@ -44,6 +44,7 @@ dependency_overrides:
     path: ../packages/xxf_resources
   xxf_cache:
     path: ../packages/xxf_cache
+  source_gen: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -61,14 +62,8 @@ dev_dependencies:
   #编译时库
   build_runner: ^2.4.15
   json_serializable: ^6.8.0
-  xxf_http_generator:
-    path: ../packages/xxf_http_generator
-  #路由生成
-  auto_route_generator: ^10.0.1
-
-  #key value自动生成
-  xxf_cache_generator:
-    path: ../packages/xxf_cache_generator
+  xxf_generator:
+    path: ../xxf_generator
 flutter:
 
   # The following line ensures that the Material Icons font is

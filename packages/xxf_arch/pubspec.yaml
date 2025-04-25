@@ -1,6 +1,6 @@
 name: xxf_arch
 description: "A Routing and State Manager Flutter package project."
-version: 0.0.10
+version: 0.0.10+1
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -39,10 +39,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  #自动注入路由框架
-  build_runner:
-  auto_route_generator: ^10.0.1
-
 
 flutter:
 

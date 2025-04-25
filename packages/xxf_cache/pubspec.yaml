@@ -1,6 +1,6 @@
 name: xxf_cache
 description: "缓存框架"
-version: 0.0.8
+version: 0.0.10+1
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -20,9 +20,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  #生成插件
-  build_runner:
-  isar_generator: ^3.1.0+1
 
 flutter:
 
