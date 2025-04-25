@@ -1,6 +1,6 @@
 name: xxf_generator
 description: "A new Flutter xxf all codegen project."
-version: 0.0.10+2
+version: 0.0.10+3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  build: ^2.0.0  # 添加这一行
   json_annotation: ^4.9.0
   #编译时库
   build_runner: ^2.4.15
