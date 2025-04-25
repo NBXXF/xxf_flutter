@@ -44,7 +44,9 @@ dependency_overrides:
     path: ../packages/xxf_resources
   xxf_cache:
     path: ../packages/xxf_cache
-  source_gen: ^1.2.2
+  analyzer: ^6.11.0
+  source_gen: ^2.0.0
+  dart_style: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -58,10 +60,6 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   # 用最新版本，或与 melos.yaml 兼容的版本
   melos: ^3.1.0
-
-  #编译时库
-  build_runner: ^2.4.15
-  json_serializable: ^6.8.0
   xxf_generator:
     path: ../xxf_generator
 flutter:

@@ -15,7 +15,7 @@ packages:
     source: sdk
     version: "0.3.3"
   analyzer:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: analyzer
       sha256: "1f14db053a8c23e260789e9b0980fa27f2680dd640932cae5e1137cce0e46e1e"
@@ -71,7 +71,7 @@ packages:
     source: hosted
     version: "10.0.1"
   auto_route_generator:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: auto_route_generator
       sha256: "8e622d26dc6be4bf496d47969e3e9ba555c3abcf2290da6abfa43cbd4f57fa52"
@@ -127,7 +127,7 @@ packages:
     source: hosted
     version: "2.4.4"
   build_runner:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: build_runner
       sha256: "058fe9dce1de7d69c4b84fada934df3e0153dd000758c4d65964d0166779aa99"
@@ -271,7 +271,7 @@ packages:
     source: hosted
     version: "1.0.8"
   dart_style:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: dart_style
       sha256: "27eb0ae77836989a3bc541ce55595e8ceee0992807f14511552a898ddd0d88ac"
@@ -352,6 +352,14 @@ packages:
     description:
       name: flutter_gen_core
       sha256: "3eaa2d3d8be58267ac4cd5e215ac965dd23cae0410dc073de2e82e227be32bfc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.10.0"
+  flutter_gen_runner:
+    dependency: transitive
+    description:
+      name: flutter_gen_runner
+      sha256: e74b4ead01df3e8f02e73a26ca856759dbbe8cb3fd60941ba9f4005cd0cd19c9
       url: "https://pub.dev"
     source: hosted
     version: "5.10.0"
@@ -514,6 +522,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.0"
+  injectable_generator:
+    dependency: transitive
+    description:
+      name: injectable_generator
+      sha256: b04673a4c88b3a848c0c77bf58b8309f9b9e064d9fe1df5450c8ee1675eaea1a
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.7.0"
   intl:
     dependency: transitive
     description:
@@ -546,6 +562,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0+1"
+  isar_generator:
+    dependency: transitive
+    description:
+      name: isar_generator
+      sha256: "76c121e1295a30423604f2f819bc255bc79f852f3bc8743a24017df6068ad133"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0+1"
   js:
     dependency: transitive
     description:
@@ -563,7 +587,7 @@ packages:
     source: hosted
     version: "4.9.0"
   json_serializable:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: json_serializable
       sha256: c50ef5fc083d5b5e12eef489503ba3bf5ccc899e487d691584699b4bdefeea8c
@@ -864,6 +888,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
+  recase:
+    dependency: transitive
+    description:
+      name: recase
+      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   retrofit:
     dependency: transitive
     description:
@@ -926,7 +958,7 @@ packages:
     source: sdk
     version: "0.0.0"
   source_gen:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: source_gen
       sha256: "35c8150ece9e8c8d263337a265153c3329667640850b9304861faea59fc98f6b"
@@ -1219,28 +1251,29 @@ packages:
       path: "../packages/xxf_arch"
       relative: true
     source: path
-    version: "0.0.10"
+    version: "0.0.10+1"
   xxf_cache:
     dependency: "direct main"
     description:
       path: "../packages/xxf_cache"
       relative: true
     source: path
-    version: "0.0.8"
+    version: "0.0.10+1"
   xxf_cache_generator:
-    dependency: "direct dev"
+    dependency: transitive
     description:
-      path: "../packages/xxf_cache_generator"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: xxf_cache_generator
+      sha256: a489a80a33b8107cb3a905d644d0a1be8f539bd77874d0a81a5680b137d344bc
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.10+1"
   xxf_extensions:
     dependency: "direct main"
     description:
       path: "../packages/xxf_extensions"
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.10+1"
   xxf_flow:
     dependency: transitive
     description:
@@ -1249,6 +1282,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.3"
+  xxf_generator:
+    dependency: "direct dev"
+    description:
+      path: "../xxf_generator"
+      relative: true
+    source: path
+    version: "0.0.10+2"
   xxf_http:
     dependency: transitive
     description:
@@ -1258,12 +1298,13 @@ packages:
     source: hosted
     version: "0.0.3"
   xxf_http_generator:
-    dependency: "direct dev"
+    dependency: transitive
     description:
-      path: "../packages/xxf_http_generator"
-      relative: true
-    source: path
-    version: "0.0.5"
+      name: xxf_http_generator
+      sha256: "15b76f2e08d80082aed6957f6a1e387f28c921677d6fc148ff5d5558ff4f80e7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.10+1"
   xxf_json:
     dependency: "direct main"
     description:
@@ -1306,6 +1347,14 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  xxh3:
+    dependency: transitive
+    description:
+      name: xxh3
+      sha256: "399a0438f5d426785723c99da6b16e136f4953fb1e9db0bf270bd41dd4619916"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   yaml:
     dependency: transitive
     description:

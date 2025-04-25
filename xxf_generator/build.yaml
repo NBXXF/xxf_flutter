@@ -1,22 +1,17 @@
 builders:
-  xxf_codegen:
+  xxf_generator:
     import: "package:xxf_generator/xxf_generator.dart"
-    builder_factories: []
+    builder_factories:
+    - "xxfGeneratorBuilder"  # 使用你刚才定义的工厂方法
     build_extensions: {}
     auto_apply: dependents
     build_to: source
     applies_builders:
-      # 自定义的json_serializable
-      - json_serializable
-      # 自定义的auto_route_generator
-      - auto_route_generator:auto_route_generator
-      # 自定义的injectable_generator
-      - injectable_generator:injectable_generator
-      # 自定义的xxf_http_generator
-      - xxf_http_generator
-      # 自定义的xxf_cache_generator
-      - xxf_cache_generator
-      # 自定义的isar_generator
-      - isar_generator
-      # 自定义的flutter_gen_runner
-      - flutter_gen_runner
+      # 引用各个生成器
+      - json_serializable  # 聚合 json_serializable
+      - auto_route_generator:auto_route_generator  # 聚合 auto_route_generator
+      - injectable_generator:injectable_generator  # 聚合 injectable_generator
+      - xxf_http_generator:xxf_http_generator  # 聚合 xxf_http_generator
+      - xxf_cache_generator:xxf_cache_generator  # 聚合 xxf_cache_generator
+      - isar_generator:isar_generator  # 聚合 isar_generator
+      - flutter_gen_runner:flutter_gen_runner  # 聚合 flutter_gen_runner
