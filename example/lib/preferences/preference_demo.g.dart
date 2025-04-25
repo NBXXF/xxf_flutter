@@ -18,13 +18,13 @@ class _PreferenceDemo extends PreferenceDemo {
 
   @override
   String? get userId {
-    final rawKey = 'xxf_userId';
-    return _getPrefs().get<String?>(rawKey) ?? '\'xx\'';
+    final rawKey = 'xxf__userId';
+    return _getPrefs().get<String?>(rawKey);
   }
 
   @override
   set userId(String? value) {
-    final rawKey = 'xxf_userId';
+    final rawKey = 'xxf__userId';
     _getPrefs().set(rawKey, value);
   }
 
@@ -42,13 +42,30 @@ class _PreferenceDemo extends PreferenceDemo {
 
   @override
   bool? get isDarkMode {
-    final rawKey = 'xxf_isDarkMode';
+    final rawKey = 'xxf_isDarkMode_${getUserId() ?? ''}';
     return _getPrefs().get<bool?>(rawKey);
   }
 
   @override
   set isDarkMode(bool? value) {
-    final rawKey = 'xxf_isDarkMode';
+    final rawKey = 'xxf_isDarkMode_${getUserId() ?? ''}';
     _getPrefs().set(rawKey, value);
+  }
+
+  @override
+  DateTime? get lastLoginTime {
+    final rawKey = 'xxf_lastLoginTime';
+    return DateTimeConverter().convertToEntityProperty(
+      _getPrefs().get<String?>(rawKey),
+    );
+  }
+
+  @override
+  set lastLoginTime(DateTime? value) {
+    final rawKey = 'xxf_lastLoginTime';
+    _getPrefs().set(
+      rawKey,
+      DateTimeConverter().convertToPreferenceValue(value),
+    );
   }
 }

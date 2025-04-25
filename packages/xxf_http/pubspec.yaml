@@ -1,6 +1,6 @@
 name: xxf_http
 description: "http封装和拓展"
-version: 0.0.2
+version: 0.0.3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -15,6 +15,7 @@ dependencies:
   retrofit:
   json_annotation: ^4.9.0
 
+  xxf_annotations:
 
 dev_dependencies:
   flutter_test:

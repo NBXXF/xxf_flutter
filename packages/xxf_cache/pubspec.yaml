@@ -1,6 +1,6 @@
 name: xxf_cache
 description: "缓存框架"
-version: 0.0.7
+version: 0.0.8
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  xxf_annotations:
   isar: ^3.1.0+1
   isar_flutter_libs: ^3.1.0+1
   # 官方的 性能差

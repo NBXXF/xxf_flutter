@@ -1097,10 +1097,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: "3ba963161bd0fe395917ba881d320b9c4f6dd3c4a233da62ab18a5025c85f1e9"
+      sha256: "4bd2b7b4dc4d4d0b94e5babfffbca8eac1a126c7f3d6ecbc1a11013faa3abba2"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   url_launcher_windows:
     dependency: transitive
     description:
@@ -1205,20 +1205,28 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.5.0"
+  xxf_annotations:
+    dependency: transitive
+    description:
+      name: xxf_annotations
+      sha256: "523135903aa307504e5c5005606130aaf2237d502a4fba780844c3ae2f3f9f16"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   xxf_arch:
     dependency: "direct main"
     description:
       path: "../packages/xxf_arch"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
   xxf_cache:
     dependency: "direct main"
     description:
       path: "../packages/xxf_cache"
       relative: true
     source: path
-    version: "0.0.7"
+    version: "0.0.8"
   xxf_cache_generator:
     dependency: "direct dev"
     description:
@@ -1245,10 +1253,10 @@ packages:
     dependency: transitive
     description:
       name: xxf_http
-      sha256: "9dd726d39d1be59090a6609375db7c8adb8652137e15cec9dc575610dc9c9e69"
+      sha256: c0e38eebe95c8535c6968fea82caf32f827148db416f3f56a4003c8043267c16
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   xxf_http_generator:
     dependency: "direct dev"
     description:
@@ -1290,7 +1298,7 @@ packages:
       path: "../packages/xxf_speed"
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.4"
   xxf_widgets:
     dependency: "direct main"
     description:

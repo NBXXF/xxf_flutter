@@ -3,8 +3,10 @@ export 'package:isar_flutter_libs/isar_flutter_libs.dart';
 
 export 'src/isar/isar_utils.dart';
 
-export 'src/key_value/preferences/gen/preference_annotation.dart';
-export 'src/key_value/preferences/gen/preference_key_annotation.dart';
+export 'src/key_value/preferences/gen/annotations/preference_annotation.dart';
+export 'src/key_value/preferences/gen/annotations/preference_key_annotation.dart';
+export 'src/key_value/preferences/gen/annotations/preference_converter_annotation.dart';
+export 'src/key_value/preferences/gen/preference_property_converter.dart';
 export 'src/key_value/preferences/gen/user_id_provider.dart';
 
 export 'src/key_value/preferences/shared_preferences.dart';

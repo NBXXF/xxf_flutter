@@ -750,10 +750,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: "3ba963161bd0fe395917ba881d320b9c4f6dd3c4a233da62ab18a5025c85f1e9"
+      sha256: "4bd2b7b4dc4d4d0b94e5babfffbca8eac1a126c7f3d6ecbc1a11013faa3abba2"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   url_launcher_windows:
     dependency: transitive
     description:
@@ -842,22 +842,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.5.0"
+  xxf_annotations:
+    dependency: transitive
+    description:
+      name: xxf_annotations
+      sha256: "523135903aa307504e5c5005606130aaf2237d502a4fba780844c3ae2f3f9f16"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   xxf_arch:
     dependency: "direct main"
     description:
       name: xxf_arch
-      sha256: "728d8bc03957ffca6023582a8819a942c7f856237c69761681db3e29a5f1cdb5"
+      sha256: a7f07103d40d28f2c9accfcb259d8c1440b5fc17091cee805e46a608c183aa33
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   xxf_cache:
     dependency: "direct main"
     description:
       name: xxf_cache
-      sha256: "0b21bd9b83725f5e2c5b2e6c894323c57365f320536c10037bb1e2b10aaf2536"
+      sha256: b19e99ef30822ab8a32d156437c776c0df76037c75e512f31b610c7c49eedad3
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.8"
   xxf_extensions:
     dependency: "direct main"
     description:
@@ -878,10 +886,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_http
-      sha256: "9dd726d39d1be59090a6609375db7c8adb8652137e15cec9dc575610dc9c9e69"
+      sha256: c0e38eebe95c8535c6968fea82caf32f827148db416f3f56a4003c8043267c16
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   xxf_json:
     dependency: "direct main"
     description:
@@ -918,10 +926,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_speed
-      sha256: "9a9b1c6cd5f41d4a1d897fd2df26e0765e75f40e39a4192a91f9b30c745278b5"
+      sha256: "6dc6c563a971b03e159f5d6d28fee38f272db76ad890d209e5793179f004441a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   xxf_widgets:
     dependency: "direct main"
     description:

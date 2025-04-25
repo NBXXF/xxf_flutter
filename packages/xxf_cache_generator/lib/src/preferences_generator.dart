@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:build/build.dart';
@@ -98,19 +99,7 @@ class PreferencesGenerator extends GeneratorForAnnotation<Preference> {
         continue;
       }
 
-      final checker = TypeChecker.fromRuntime(PreferenceKey);
-      final PreferenceKey preferenceKey;
-      if (checker.hasAnnotationOf(field)) {
-        final annotation = checker.firstAnnotationOf(field);
-        final reader = ConstantReader(annotation);
-        preferenceKey = PreferenceKey(
-          name: reader.peek("name")?.stringValue ?? fieldName,
-          diffUser: reader.peek("diffUser")?.boolValue ?? false,
-          defaultValue: reader.peek("defaultValue")?.literalValue,
-        );
-      } else {
-        preferenceKey = PreferenceKey(name: fieldName, diffUser: false);
-      }
+      PreferenceKey preferenceKey = _parsePreferenceKey(field, fieldName);
       if (preferenceKey.diffUser == true &&
           !hasImplementedInterface(element, UserIdProvider)) {
         final todoStr =
@@ -133,22 +122,32 @@ class PreferencesGenerator extends GeneratorForAnnotation<Preference> {
       final rawKey = "rawKey";
       bodyBuilder.write("final $rawKey = '$rawKeyValue';");
 
-      ///可空类型判断
-      if (!isDeclareNullable(type) && preferenceKey.defaultValue == null) {
-        final todoStr =
-            '$fieldName must add annotation $PreferenceKey add defaultValue';
-        throw InvalidGenerationSourceError(
-          'Generator cannot target `$fieldName`. $todoStr',
-          todo: todoStr,
-          element: field,
-        );
-      }
-      if (preferenceKey.defaultValue != null) {
+      var parsePreferenceConverterType = _parsePreferenceConverterType(field);
+      if (parsePreferenceConverterType != null) {
+        ///这里类型是string
+        final buildValue = "$_funcGetPrefs().get<String?>($rawKey)";
         bodyBuilder.write(
-          "return $_funcGetPrefs().get<$typeString>($rawKey)??${formatValue(preferenceKey.defaultValue)};",
+          "return $parsePreferenceConverterType().convertToEntityProperty($buildValue);",
         );
       } else {
-        bodyBuilder.write("return $_funcGetPrefs().get<$typeString>($rawKey);");
+        ///可空类型判断
+        if (!isDeclareNullable(type) && preferenceKey.defaultValue == null) {
+          final todoStr =
+              '$fieldName must add annotation $PreferenceKey add defaultValue';
+          throw InvalidGenerationSourceError(
+            'Generator cannot target `$fieldName`. $todoStr',
+            todo: todoStr,
+            element: field,
+          );
+        }
+        final buildValue = "$_funcGetPrefs().get<$typeString>($rawKey)";
+        if (preferenceKey.defaultValue != null) {
+          bodyBuilder.write(
+            "return $buildValue??${formatValue(preferenceKey.defaultValue)};",
+          );
+        } else {
+          bodyBuilder.write("return $buildValue;");
+        }
       }
 
       ///getter
@@ -168,7 +167,13 @@ class PreferencesGenerator extends GeneratorForAnnotation<Preference> {
       final valueKey = "value";
       bodyBuilder.clear();
       bodyBuilder.write("final $rawKey = '$rawKeyValue';");
-      bodyBuilder.write("$_funcGetPrefs().set($rawKey,$valueKey);");
+      if (parsePreferenceConverterType != null) {
+        bodyBuilder.write(
+          "$_funcGetPrefs().set($rawKey,$parsePreferenceConverterType().convertToPreferenceValue($valueKey));",
+        );
+      } else {
+        bodyBuilder.write("$_funcGetPrefs().set($rawKey,$valueKey);");
+      }
 
       methodList.add(
         Method((m) {
@@ -190,6 +195,38 @@ class PreferencesGenerator extends GeneratorForAnnotation<Preference> {
       );
     }
     return methodList;
+  }
+
+  PreferenceKey _parsePreferenceKey(FieldElement field, String fieldName) {
+    final checker = TypeChecker.fromRuntime(PreferenceKey);
+    final PreferenceKey preferenceKey;
+    if (checker.hasAnnotationOf(field)) {
+      final annotation = checker.firstAnnotationOf(field);
+      final reader = ConstantReader(annotation);
+      preferenceKey = PreferenceKey(
+        name: reader.peek("name")?.stringValue ?? fieldName,
+        diffUser: reader.peek("diffUser")?.boolValue ?? false,
+        defaultValue: reader.peek("defaultValue")?.literalValue,
+      );
+    } else {
+      preferenceKey = PreferenceKey(name: fieldName, diffUser: false);
+    }
+    return preferenceKey;
+  }
+
+  ///解析转换器
+  String? _parsePreferenceConverterType(FieldElement field) {
+    final checker = TypeChecker.fromRuntime(PreferenceConverter);
+    if (checker.hasAnnotationOf(field)) {
+      final annotation = checker.firstAnnotationOf(field);
+      final reader = ConstantReader(annotation);
+      final converterType = reader.read('converter').typeValue;
+      final converterTypeName = converterType.getDisplayString(
+        withNullability: false,
+      );
+      return converterTypeName;
+    }
+    return null;
   }
 
   ///格式化

@@ -1,5 +1,4 @@
 import 'dart:developer' as developer;
-import 'dart:io';
 
 import 'package:example/router/app_router.dart' show AppRouter;
 import 'package:example/router/app_router.gr.dart';
@@ -8,8 +7,6 @@ import 'package:module_a/router/module_a_router.gr.dart';
 import 'package:module_b/router/module_b_router.gr.dart';
 import 'package:xxf_arch/xxf_arch.dart';
 import 'package:xxf_log/xxf_log.dart';
-import 'package:xxf_extensions/xxf_extensions.dart';
-import 'package:xxf_cache/xxf_cache.dart';
 import 'package:xxf_resources/xxf_resources.dart';
 
 import 'package:module_a/generated/l10n.dart' as module_a_l10n;
@@ -52,8 +49,11 @@ class MyApp extends StatelessWidget {
             Locale('en'), // English
             Locale('zh'), // China
           ],
+          darkTheme: ThemeData.light(),
+          themeMode: ThemeMode.light,
+          // 强制使用 light 主题
           theme: ThemeData(
-            scaffoldBackgroundColor: Colors.grey[100], // 全局背景色
+            scaffoldBackgroundColor: Colors.white, // 全局背景色
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
         );
@@ -74,25 +74,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    ///回调方式更加高效,底层逻辑先判断是否打印,再执行回调
-    logD(() => "=======>_incrementCounter");
-    var measureNano = measureTimeMillis(() {
-      logE("=========>count:$_counter");
-    });
-    logE("=========>take:$measureNano");
-
     setState(() {
       _counter++;
     });
-    test();
-  }
-
-  void test() {
-    final key = "xxx";
-    SharedPreferences.getInstance().getString(key).then((value) {
-      logI("=========>cached:$key =$value");
-    });
-    SharedPreferences.getInstance().putString(key, "$_counter");
   }
 
   @override
@@ -106,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            const Text('xxf_flutter 技术中台'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -125,49 +109,20 @@ class _MyHomePageState extends State<MyHomePage> {
             GestureDetector(
               child: Text("log test"),
               onTap: () {
-                void measure(String tag, void Function() call) {
-                  var measureM = measureTimeMicros(call);
-                  print("========>take（$tag）:$measureM us");
-                }
-
-                var dateTime = DateTime.now();
-                measure("logD", () {
-                  logD("=============>test logD:$dateTime",tag:"xx");
-                });
-
-                measure("print", () {
-                  print("=============>test print:$dateTime");
-                });
-
-                measure("debugPrint", () {
-                  debugPrint("=============>test debugPrint:$dateTime");
-                });
-
-                measure("developer.log", () {
-                  developer.log("=============>test developer.log:$dateTime");
-                });
-
-                measure("stderr.writeln", () {
-                  stderr.writeln("=============>test stderr.writeln:$dateTime");
-                });
+                context.router.push(LogRoute());
               },
             ),
             GestureDetector(
               child: Text("key_value"),
               onTap: () {
+                context.router.push(SharedPreferenceRoute());
+              },
+            ),
+            GestureDetector(
+              child: Text("toast"),
+              onTap: () {
                 final key = "test";
                 showToast(key);
-                logD(
-                  "=============>isarSyncKeyValue set take time:${measureTimeMillis(() {
-                    IsarSyncKeyValue().set(key, "${DateTime.now()}");
-                  })}",
-                );
-                logD(
-                  "=============>isarSyncKeyValue get take time:${measureTimeMillis(() {
-                    final value = IsarSyncKeyValue().get(key);
-                    logD("=============>isarSyncKeyValue get value:$value");
-                  })}",
-                );
               },
             ),
             GestureDetector(
