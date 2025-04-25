@@ -11,7 +11,7 @@ const _analyzerIgnores =
     "//created by xxf<xuanyouwu@gmail.com>, custom preferences" +
     "\n//For more information, please refer to https://pub.dev/packages/xxf_flutter";
 
-class KVGenerator extends GeneratorForAnnotation<Preference> {
+class PreferencesGenerator extends GeneratorForAnnotation<Preference> {
   static const String _fieldPrefs = "_prefs";
   static const String _funcGetPrefs = "_getPrefs";
 
@@ -26,96 +26,11 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
       throw InvalidGenerationSourceError(
         'Generator cannot target `$name`.',
         todo: 'Remove the [Preference] annotation from `$name`.',
+        element: element,
       );
     }
 
     return _implementClass(element, annotation);
-    final nameSpace = annotation.peek('nameSpace')?.stringValue;
-    final prefix = nameSpace != null ? '$nameSpace.' : '';
-
-    final implementsUserIdProvider = hasImplementedInterface(
-      element,
-      UserIdProvider,
-    );
-
-    final className = element.name;
-    final implClass = '_${className}Impl';
-    final buffer = StringBuffer();
-
-    buffer.writeln('$className ${toLowerCaseFirst(className)} = $implClass();');
-    buffer.writeln();
-    buffer.writeln('class $implClass extends $className {');
-
-    buffer.writeln();
-    buffer.writeln('static $implClass? _instance;');
-    buffer.writeln('final IsarSyncKeyValue prefs;');
-    buffer.writeln();
-    buffer.writeln('$implClass._internal(this.prefs);');
-    buffer.writeln();
-    buffer.writeln('factory $implClass() {');
-    buffer.writeln(
-      'final appFlutterDir = Directory(\'\${Directory.systemTemp.parent.path}/app_flutter\');',
-    );
-    buffer.writeln(
-      'if (!appFlutterDir.existsSync()) appFlutterDir.createSync();',
-    );
-    buffer.writeln(
-      '_instance ??= $implClass._internal(IsarSyncKeyValue(directory: appFlutterDir.path));',
-    );
-    buffer.writeln('return _instance!;');
-    buffer.writeln('}');
-
-    for (final field in element.fields) {
-      final hasUserIdentifier = hasAnnotation(
-        field,
-        userIdentifier.runtimeType,
-      );
-
-      final fieldName = field.name;
-
-      final fieldType = field.type.getDisplayString();
-      final isNullable =
-          field.type.nullabilitySuffix == NullabilitySuffix.question;
-
-      // 生成 getter
-      buffer.writeln("@override");
-      buffer.writeln("$fieldType get $fieldName {");
-      if (implementsUserIdProvider && hasUserIdentifier) {
-        buffer.writeln(
-          "final fieldKey = '\${getUserId() ?? ''}.$prefix$fieldName';",
-        );
-      } else {
-        buffer.writeln("final fieldKey = '$prefix$fieldName';");
-      }
-      buffer.writeln("return prefs.get<$fieldType>(fieldKey);");
-      buffer.writeln("}");
-
-      // 生成 setter
-      buffer.writeln("@override");
-      buffer.writeln("set $fieldName($fieldType value) {");
-
-      if (implementsUserIdProvider && hasUserIdentifier) {
-        buffer.writeln(
-          "final fieldKey = '\${getUserId() ?? ''}.$prefix$fieldName';",
-        );
-      } else {
-        buffer.writeln("final fieldKey = '$prefix$fieldName';");
-      }
-
-      if (isNullable) {
-        buffer.writeln("if (value == null) {");
-        buffer.writeln("prefs.remove(fieldKey);");
-        buffer.writeln("} else {");
-        buffer.writeln("prefs.set(fieldKey, value);");
-        buffer.writeln("}");
-      } else {
-        buffer.writeln("prefs.set(fieldKey, value);");
-      }
-      buffer.writeln("}");
-    }
-
-    buffer.writeln('}');
-    return buffer.toString();
   }
 
   String _implementClass(ClassElement element, ConstantReader? annotation) {
@@ -138,7 +53,14 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
         //             baseUrl, superClassConst: e, classElement: element),
         //   ),
         // )
-        ..methods.addAll([_buildGetPrefsFunc(),..._buildFieldGetterAndSetter(element, annotation)]);
+        ..methods.addAll([
+          _buildGetPrefsFunc(),
+          ..._buildFieldGetterAndSetter(
+            element,
+            annotation,
+            preferenceAnnotation,
+          ),
+        ]);
       c.extend = Reference(element.displayName);
     });
 
@@ -150,11 +72,8 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
 
   ///生成 prefs get方法
   Method _buildGetPrefsFunc() {
-    StringBuffer bodyBuilder=StringBuffer();
-    bodyBuilder.writeln("if ($_fieldPrefs!=null) return $_fieldPrefs!;");
-    bodyBuilder.writeln("final appFlutterDir =Directory('\${Directory.systemTemp.parent.path}/app_flutter');");
-    bodyBuilder.writeln("if (!appFlutterDir.existsSync()) appFlutterDir.createSync();");
-    bodyBuilder.writeln("return $_fieldPrefs??=$IsarSyncKeyValue(directory: appFlutterDir.path);");
+    StringBuffer bodyBuilder = StringBuffer();
+    bodyBuilder.writeln("return $_fieldPrefs??=$IsarSyncKeyValue();");
     return Method(
       (m) =>
           m
@@ -168,6 +87,7 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
   List<Method> _buildFieldGetterAndSetter(
     ClassElement element,
     ConstantReader? annotation,
+    Preference preference,
   ) {
     List<Method> methodList = [];
     for (var field in element.fields) {
@@ -186,26 +106,50 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
         preferenceKey = PreferenceKey(
           name: reader.peek("name")?.stringValue ?? fieldName,
           diffUser: reader.peek("diffUser")?.boolValue ?? false,
+          defaultValue: reader.peek("defaultValue")?.literalValue,
         );
       } else {
         preferenceKey = PreferenceKey(name: fieldName, diffUser: false);
       }
       if (preferenceKey.diffUser == true &&
           !hasImplementedInterface(element, UserIdProvider)) {
+        final todoStr =
+            '${element.name} must extends or implements $UserIdProvider';
         throw InvalidGenerationSourceError(
-          'Generator cannot target `$fieldName`.',
-          todo: '${element.name} must extends or implements $UserIdProvider',
+          'Generator cannot target `$fieldName`.$todoStr',
+          todo: todoStr,
+          element: field,
         );
       }
 
-      var rawKeyValue = "'${preferenceKey.name ?? fieldName}'";
+      var rawKeyValue = preferenceKey.name ?? fieldName;
+      if (preference.name != null) {
+        rawKeyValue = "${preference.name}_$rawKeyValue";
+      }
       if (preferenceKey.diffUser == true) {
-        rawKeyValue = "'\${getUserId() ?? ''}.$fieldName'";
+        rawKeyValue = "${rawKeyValue}_\${getUserId() ?? ''}";
       }
       final bodyBuilder = StringBuffer();
       final rawKey = "rawKey";
-      bodyBuilder.write("final $rawKey = $rawKeyValue;");
-      bodyBuilder.write("return $_funcGetPrefs().get<$typeString>($rawKey);");
+      bodyBuilder.write("final $rawKey = '$rawKeyValue';");
+
+      ///可空类型判断
+      if (!isDeclareNullable(type) && preferenceKey.defaultValue == null) {
+        final todoStr =
+            '$fieldName must add annotation $PreferenceKey add defaultValue';
+        throw InvalidGenerationSourceError(
+          'Generator cannot target `$fieldName`. $todoStr',
+          todo: todoStr,
+          element: field,
+        );
+      }
+      if (preferenceKey.defaultValue != null) {
+        bodyBuilder.write(
+          "return $_funcGetPrefs().get<$typeString>($rawKey)??${formatValue(preferenceKey.defaultValue)};",
+        );
+      } else {
+        bodyBuilder.write("return $_funcGetPrefs().get<$typeString>($rawKey);");
+      }
 
       ///getter
       methodList.add(
@@ -223,7 +167,7 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
       ///setter
       final valueKey = "value";
       bodyBuilder.clear();
-      bodyBuilder.write("final $rawKey = $rawKeyValue;");
+      bodyBuilder.write("final $rawKey = '$rawKeyValue';");
       bodyBuilder.write("$_funcGetPrefs().set($rawKey,$valueKey);");
 
       methodList.add(
@@ -248,13 +192,28 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
     return methodList;
   }
 
+  ///格式化
+  String formatValue(Object? object) {
+    if (object is String) {
+      return literalString(object).accept(DartEmitter()).toString();
+    } else {
+      return "$object";
+    }
+  }
+
+  ///是否可空声明
+  bool isDeclareNullable(DartType type) {
+    return type.nullabilitySuffix == NullabilitySuffix.question;
+  }
+
   Field _buildPrefsFiled() => Field(
     (m) =>
         m
           ..name = _fieldPrefs
           ..type = refer('$IsarSyncKeyValue?')
-          ..modifier = FieldModifier.var$
-        ///  ..assignment = Code('$IsarSyncKeyValue()'), // 这里是关键！
+          ..modifier = FieldModifier.var$,
+
+    ///  ..assignment = Code('$IsarSyncKeyValue()'), // 这里是关键！
   );
 
   bool hasAnnotation(FieldElement field, Type annotationType) {
@@ -274,35 +233,4 @@ class KVGenerator extends GeneratorForAnnotation<Preference> {
     if (parameter == null) return null;
     return '${parameter.type.getDisplayString()} ${parameter.name} = ${parameter.defaultValueCode}';
   }
-
-  String _toSetMethod(String type) {
-    return _toGetMethod(type);
-  }
-
-  String _toGetMethod(String type) {
-    switch (type) {
-      case 'String':
-      case 'String?':
-        return 'String';
-      case 'int':
-      case 'int?':
-        return 'Int';
-      case 'bool':
-      case 'bool?':
-        return 'Bool';
-      case 'double':
-      case 'double?':
-        return 'Double';
-      case 'List<String>':
-      case 'List<String>?':
-        return 'StringList';
-      default:
-        throw UnsupportedError('Unsupported return type: $type');
-    }
-  }
-}
-
-String toLowerCaseFirst(String input) {
-  if (input.isEmpty) return input;
-  return input[0].toLowerCase() + input.substring(1);
 }

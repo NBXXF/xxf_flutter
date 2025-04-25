@@ -5,13 +5,13 @@ import 'key_value.dart';
 
 ///同步方式 封装了底层的 Isar 数据库，实现了一个同步风格的键值存储 API。
 class IsarSyncKeyValue {
-  IsarSyncKeyValue({this.name = dbName, this.directory = '.'});
+  IsarSyncKeyValue({this.name = dbName, this.directory});
 
   /// 数据库名称
   final String name;
 
   /// 数据库存储目录
-  final String directory;
+  final String? directory;
 
   /// 延迟初始化的 isar 实例
   Isar? _isarInstance;
@@ -26,6 +26,10 @@ class IsarSyncKeyValue {
   }
 
   int set<T>(String key, T value) {
+    if (value == null) {
+      remove(key);
+      return 0;
+    }
     final item = KeyValue()..key = key;
     item.value = value;
     return _isar.writeTxnSync(() => _isar.keyValues.putSync(item));

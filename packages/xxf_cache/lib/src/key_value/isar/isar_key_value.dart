@@ -7,13 +7,13 @@ import 'key_value.dart';
 
 /// 封装了底层的 Isar 数据库，实现了一个键值存储的 API。
 class IsarKeyValue {
-  IsarKeyValue({this.name = dbName, this.directory = '.'});
+  IsarKeyValue({this.name = dbName, this.directory});
 
   /// 数据库名称
   final String name;
 
   /// 数据库存储目录
-  final String directory;
+  final String? directory;
 
   /// 延迟初始化的 isar 实例
   late final _isar = Completer<Isar>()..complete(_open());
@@ -41,6 +41,10 @@ class IsarKeyValue {
   /// 如果 [key] 已存在，则会覆盖之前的值
   /// 返回新条目的主键 ID，可用来通过 ID 访问值
   Future<int> set<T>(String key, T value) async {
+    if (value == null) {
+      await remove(key);
+      return 0;
+    }
     final isar = await _isar.future;
     final item = KeyValue()..key = key;
     item.value = value;

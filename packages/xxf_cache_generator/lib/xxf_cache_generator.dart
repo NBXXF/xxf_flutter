@@ -1,5 +1,5 @@
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
-import 'src/kv_generator.dart';
+import 'src/preferences_generator.dart';
 
-Builder kvBuilder(BuilderOptions options) => SharedPartBuilder([KVGenerator()], 'xxf_cache_generator');
+Builder preferencesBuilder(BuilderOptions options) => SharedPartBuilder([PreferencesGenerator()], 'xxf_cache_generator');
