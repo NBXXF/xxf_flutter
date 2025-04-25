@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  json_annotation: ^4.9.0
   #编译时库
   build_runner: ^2.4.15
   #json
@@ -19,13 +20,13 @@ dependencies:
   # 依赖注入 配合get_it+injectable 生成代码
   injectable_generator: ^2.7.0
   #http 生成自己的
-  xxf_http_generator:
+  xxf_http_generator: ^0.0.10+1
   #生成声明式kv存储
-  xxf_cache_generator:
+  xxf_cache_generator: ^0.0.10+1
   #xxf_cache 有isar 数据库
   isar_generator: ^3.1.0+1
   # 生成图片等资源文件
-  flutter_gen_runner:
+  flutter_gen_runner: ^5.10.0
 
 dependency_overrides:
   source_gen: ^1.2.2
