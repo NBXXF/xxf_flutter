@@ -554,14 +554,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.0+1"
-  isar_flutter_libs:
-    dependency: transitive
-    description:
-      name: isar_flutter_libs
-      sha256: bc6768cc4b9c61aabff77152e7f33b4b17d2fc93134f7af1c3dd51500fe8d5e8
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0+1"
   isar_generator:
     dependency: transitive
     description:
@@ -1258,7 +1250,7 @@ packages:
       path: "../packages/xxf_cache"
       relative: true
     source: path
-    version: "0.0.10+1"
+    version: "0.0.10+2"
   xxf_cache_generator:
     dependency: transitive
     description:
@@ -1288,7 +1280,7 @@ packages:
       path: "../xxf_generator"
       relative: true
     source: path
-    version: "0.0.10+2"
+    version: "0.0.10+3"
   xxf_http:
     dependency: transitive
     description:
@@ -1305,6 +1297,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.10+1"
+  xxf_isar_flutter_libs:
+    dependency: transitive
+    description:
+      name: xxf_isar_flutter_libs
+      sha256: "23af64fda7b49ac7efb0c91ee6079908c9d60bf2c5d089b5827900faa5317814"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0+1"
   xxf_json:
     dependency: "direct main"
     description:
