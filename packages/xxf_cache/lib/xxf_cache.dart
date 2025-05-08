@@ -1,5 +1,5 @@
 export 'package:isar/isar.dart';
-export 'package:isar_flutter_libs/isar_flutter_libs.dart';
+export 'package:xxf_isar_flutter_libs/isar_flutter_libs.dart';
 
 export 'src/isar/isar_utils.dart';
 

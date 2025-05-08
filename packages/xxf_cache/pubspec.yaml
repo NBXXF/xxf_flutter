@@ -1,6 +1,6 @@
 name: xxf_cache
 description: "缓存框架"
-version: 0.0.10+1
+version: 0.0.10+2
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -12,7 +12,8 @@ dependencies:
     sdk: flutter
   xxf_annotations:
   isar: ^3.1.0+1
-  isar_flutter_libs: ^3.1.0+1
+  # 解决android gradle 8不能编译的问题,namespace缺乏的问题
+  xxf_isar_flutter_libs: ^3.1.0+1
   # 官方的 性能差
   # shared_preferences: ^2.0.11
 
@@ -21,6 +22,9 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+  #生成插件,业务工程需要添加
+#  build_runner:
+#  isar_generator: ^3.1.0+1
 flutter:
 
   # To add assets to your package, add an assets section, like this:
