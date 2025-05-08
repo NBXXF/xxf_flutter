@@ -1,12 +1,13 @@
 name: xxf_generator
 description: "A new Flutter xxf all codegen project."
-version: 0.0.10+3
+version: 0.0.10+4
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
   sdk: ^3.7.2
   flutter: ">=1.17.0"
 
+#聚合各个插件生成库,xxf_generator 一键配置
 dependencies:
   flutter:
     sdk: flutter
@@ -23,7 +24,7 @@ dependencies:
   #http 生成自己的
   xxf_http_generator: ^0.0.10+1
   #生成声明式kv存储
-  xxf_cache_generator: ^0.0.10+1
+  xxf_cache_generator: ^0.0.10+2
   #xxf_cache 有isar 数据库
   isar_generator: ^3.1.0+1
   # 生成图片等资源文件
