@@ -1,17 +1,56 @@
 builders:
-  xxf_generator:
-    import: "package:xxf_generator/xxf_generator.dart"
-    builder_factories:
-    - "xxfGeneratorBuilder"  # 使用你刚才定义的工厂方法
-    build_extensions: {}
+  # 为 json_serializable 生成器配置
+  json_serializable:
+    import: "package:json_serializable/json_serializable.dart"
+    builder_factories: ["jsonSerializableBuilder"]
+    build_extensions: {".dart": [".g.dart"]}
     auto_apply: dependents
     build_to: source
-    applies_builders:
-      # 引用各个生成器
-      - json_serializable  # 聚合 json_serializable
-      - auto_route_generator:auto_route_generator  # 聚合 auto_route_generator
-      - injectable_generator:injectable_generator  # 聚合 injectable_generator
-      - xxf_http_generator:xxf_http_generator  # 聚合 xxf_http_generator
-      - xxf_cache_generator:xxf_cache_generator  # 聚合 xxf_cache_generator
-      - isar_generator:isar_generator  # 聚合 isar_generator
-      - flutter_gen_runner:flutter_gen_runner  # 聚合 flutter_gen_runner
+
+  # 为 auto_route_generator 生成器配置
+  auto_route_generator:
+    import: "package:auto_route_generator/auto_route_generator.dart"
+    builder_factories: ["AutoRouteGenerator"]
+    build_extensions: {".dart": [".router.dart"]}
+    auto_apply: dependents
+    build_to: source
+
+  # 为 injectable_generator 生成器配置
+  injectable_generator:
+    import: "package:injectable_generator/injectable_generator.dart"
+    builder_factories: ["InjectableGenerator"]
+    build_extensions: {".dart": [".injectable.dart"]}
+    auto_apply: dependents
+    build_to: source
+
+  # 为 xxf_http_generator 生成器配置
+  xxf_http_generator:
+    import: "package:xxf_http_generator/xxf_http_generator.dart"
+    builder_factories: ["xxfHttpGenerator"]
+    build_extensions: {".dart": [".http.dart"]}
+    auto_apply: dependents
+    build_to: source
+
+  # 为 xxf_cache_generator 生成器配置
+  xxf_cache_generator:
+    import: "package:xxf_cache_generator/xxf_cache_generator.dart"
+    builder_factories: ["preferencesBuilder"]
+    build_extensions: {".dart": [".cache.dart"]}
+    auto_apply: dependents
+    build_to: source
+
+  # 为 isar_generator 生成器配置
+  isar_generator:
+    import: "package:isar_generator/isar_generator.dart"
+    builder_factories: ["IsarGenerator"]
+    build_extensions: {".dart": [".isar.dart"]}
+    auto_apply: dependents
+    build_to: source
+
+  # 为 flutter_gen_runner 生成器配置
+  flutter_gen_runner:
+    import: "package:flutter_gen_runner/flutter_gen_runner.dart"
+    builder_factories: ["FlutterGenBuilder"]
+    build_extensions: {".dart": [".gen.dart"]}
+    auto_apply: dependents
+    build_to: source

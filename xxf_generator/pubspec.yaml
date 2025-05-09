@@ -7,12 +7,8 @@ environment:
   sdk: ^3.7.2
   flutter: ">=1.17.0"
 
-#聚合各个插件生成库,xxf_generator 一键配置
+# 没有 dependencies，因为这是个纯 dev 包
 dependencies:
-  flutter:
-    sdk: flutter
-  build: ^2.0.0  # 添加这一行
-  json_annotation: ^4.9.0
   #编译时库
   build_runner: ^2.4.15
   #json
@@ -24,7 +20,7 @@ dependencies:
   #http 生成自己的
   xxf_http_generator: ^0.0.10+1
   #生成声明式kv存储
-  xxf_cache_generator: ^0.0.10+2
+  xxf_cache_generator: ^0.0.10+3
   #xxf_cache 有isar 数据库
   isar_generator: ^3.1.0+1
   # 生成图片等资源文件
@@ -40,6 +36,22 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
+  #编译时库
+  build_runner: ^2.4.15
+  #json
+  json_serializable: ^6.8.0
+  #路由生成
+  auto_route_generator: ^10.0.1
+  # 依赖注入 配合get_it+injectable 生成代码
+  injectable_generator: ^2.7.0
+  #http 生成自己的
+  xxf_http_generator: ^0.0.10+1
+  #生成声明式kv存储
+  xxf_cache_generator: ^0.0.10+3
+  #xxf_cache 有isar 数据库
+  isar_generator: ^3.1.0+1
+  # 生成图片等资源文件
+  flutter_gen_runner: ^5.10.0
 flutter:
 
   # To add assets to your package, add an assets section, like this:

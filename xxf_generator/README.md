@@ -24,10 +24,13 @@ dev_dependencies:
 ```
 
 ## Usage
+聚合的意义没有
 
-Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Dart 的构建系统在执行构建时，只会扫描当前项目的 pubspec.yaml 中的依赖；
+对于代码生成器（builder），即使你通过聚合引用了它们，它们依旧不会被自动“透传加载”；
+build_runner 必须看到它们明确地出现在用户项目中，才会调用它们的生成逻辑。
 
+业务必须还手动加一边子项
 ```dart
 const like = 'sample';
 ```
