@@ -1,6 +1,6 @@
 name: xxf_cache
 description: "缓存框架"
-version: 0.0.10+2
+version: 0.0.10+3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -13,7 +13,9 @@ dependencies:
   xxf_annotations:
   isar: ^3.1.0+1
   # 解决android gradle 8不能编译的问题,namespace缺乏的问题
-  xxf_isar_flutter_libs: ^3.1.0+1
+  # 业务可以覆盖 dependency_overrides的方式来覆盖 https://github.com/MrLittleWhite/isar_flutter_libs
+  # 业务也可以选择 社区公开版本开覆盖 https://github.com/isar-community/isar
+  isar_flutter_libs: ^3.1.0+1
   # 官方的 性能差
   # shared_preferences: ^2.0.11
 

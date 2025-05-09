@@ -1,6 +1,6 @@
 name: xxf_cache_generator
 description: "A new Flutter cache annotation project."
-version: 0.0.10+2
+version: 0.0.10+3
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  xxf_cache:
+  xxf_cache: 0.0.10+3
   #  path: ../xxf_cache
   source_gen: ^1.2.2
   analyzer: ^6.11.0

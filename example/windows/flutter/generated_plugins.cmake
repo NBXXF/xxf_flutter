@@ -3,9 +3,9 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  isar_flutter_libs
   share_plus
   url_launcher_windows
-  xxf_isar_flutter_libs
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
