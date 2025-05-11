@@ -29,9 +29,15 @@ extension FileSystemEntityPathExtension<T extends FileSystemEntity> on T {
   /// 是否是文件（由路径判断）
   Future<bool> get isFile async => await FileSystemEntity.isFile(path);
 
+  /// 是否是文件（由路径判断）
+  bool get isFileSync => FileSystemEntity.isFileSync(path);
+
   /// 是否是目录（由路径判断）
   Future<bool> get isDirectory async =>
       await FileSystemEntity.isDirectory(path);
+
+  /// 是否是目录（由路径判断）
+  bool get isDirectorySync => FileSystemEntity.isDirectorySync(path);
 
   /// 文件大小（仅限 File）
   Future<int> get fileSize async {
