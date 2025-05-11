@@ -1,6 +1,6 @@
 name: xxf_desktop
 description: "桌面端"
-version: 0.0.10+3
+version: 0.0.10+4
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -19,16 +19,6 @@ dependencies:
   contextual_menu: ^0.1.2
   #分栏视图  https://caduandrade.github.io/multi_split_view_demo/
   multi_split_view: ^3.6.0
-
-  ###文件相关,desktop程序常用
-  #文件路径获取 常用
-  path_provider: ^2.1.5
-  #路径拼接处理
-  path: ^1.9.1
-  #文件选择
-  file_selector: ^1.0.3
-
-
 
 dev_dependencies:
   flutter_test:
