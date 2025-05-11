@@ -10,3 +10,8 @@ export 'src/system_tray/system_tray_extensions.dart';
 
 ///分栏视图
 export 'package:multi_split_view/multi_split_view.dart';
+
+///文件相关
+export 'package:path_provider/path_provider.dart';
+export 'package:path/path.dart';
+export 'package:file_selector/file_selector.dart';
