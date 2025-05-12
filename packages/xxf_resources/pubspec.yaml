@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   #图片,字体,颜色生成清单,类似swiftGen,需要在dev_dependencies 配置这两行   build_runner: flutter_gen_runner:
+  #flutter_asset_generator 不支持多模块,暂时就不用了
   flutter_gen: ^5.10.0
 
   #国际化,idea 使用flutter intl插件自动生成清单文件
