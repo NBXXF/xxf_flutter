@@ -942,10 +942,10 @@ packages:
     dependency: "direct main"
     description:
       name: xxf_extensions
-      sha256: "3fa3daf0007fb8cca6992f73456303751097f692b5e02bb1c8444fafcdd40abe"
+      sha256: "47de53be67b1aff07fd07b439dbe0f2abe316df73d227b00f835c8b51f5d40b8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.10+1"
   xxf_files:
     dependency: "direct main"
     description:
