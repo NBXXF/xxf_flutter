@@ -5,6 +5,7 @@ export 'package:dartx/dartx.dart';
 
 export 'src/core/kotlin/standard.dart';
 export 'src/core/kotlin/result.dart';
+export 'src/core/collection/iterable_extensions.dart';
 export 'src/core/safe_cast_extensions.dart';
 export 'src/core/timing_extensions.dart';
 export 'src/editable/editable_text_state_extensions.dart';
