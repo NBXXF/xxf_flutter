@@ -11,3 +11,5 @@ export 'src/system_tray/system_tray_extensions.dart';
 ///分栏视图
 export 'package:multi_split_view/multi_split_view.dart';
 
+///多窗口支持
+export 'package:desktop_multi_window/desktop_multi_window.dart';

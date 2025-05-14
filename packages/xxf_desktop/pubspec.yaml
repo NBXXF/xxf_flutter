@@ -1,6 +1,6 @@
 name: xxf_desktop
 description: "桌面端"
-version: 0.0.10+4
+version: 0.0.10+5
 homepage: "https://github.com/NBXXF/xxf_flutter"
 
 environment:
@@ -19,6 +19,9 @@ dependencies:
   contextual_menu: ^0.1.2
   #分栏视图  https://caduandrade.github.io/multi_split_view_demo/
   multi_split_view: ^3.6.0
+  #多窗口支持
+  desktop_multi_window: ^0.2.1
+
 
 dev_dependencies:
   flutter_test:
